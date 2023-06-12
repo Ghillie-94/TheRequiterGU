@@ -148,6 +148,7 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="PalmTreeClose.cpp" />
     <ClCompile Include="PalmTreeFar.cpp" />
+    <ClCompile Include="Parallax.cpp" />
     <ClCompile Include="PierFerrisLayer.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="PalmTreeClose.h" />
     <ClInclude Include="PalmTreeFar.h" />
+    <ClInclude Include="Parallax.h" />
     <ClInclude Include="PierFerrisLayer.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
