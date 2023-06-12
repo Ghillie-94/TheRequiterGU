@@ -38,6 +38,15 @@ private:
     bool isBossAlive;
     bool isPlayerAlive;
 
+    Player player;
+    WinPanel winPanel;
+    LosePanel losePanel;
+
+    //declare a vector array of parallax pointers
+    std::vector<Parallax*> parallaxLayers;
+
+    //declare a vector array of enemy pointers
+    std::vector<Enemy*> enemies;
     
 
     sf::View camera;
