@@ -121,6 +121,32 @@ void Player::Update(sf::Time frameTime)
 
 void Player::HandleCollision(SpriteObject& other)
 {
+	const float REBOUNDSPEED = 100;
+	sf::Vector2f depth = GetCollisionDepth(other);
+	sf::Vector2f newPos = GetPosition();
+
+	if (abs(depth.x) < abs(depth.y))
+	{
+		// Move in X direction
+		newPos.x += depth.x;
+		velocity.x = 0;
+		acceleration.x = 0;
+	}
+	else
+	{
+		// Move in y direction
+		newPos.y += depth.y;
+		velocity.y = 0;
+		acceleration.y = 0;
+
+		// If we collided from above
+		if (depth.y < 0)
+		{
+			velocity.y = -REBOUNDSPEED;
+		}
+	}
+
+	SetPosition(newPos);
 }
 
 void Player::AttackCheck()
