@@ -153,6 +153,7 @@
     <ClCompile Include="TheRequiter.cpp" />
     <ClCompile Include="LevelScreen.cpp" />
     <ClCompile Include="VectorHelper.cpp" />
+    <ClCompile Include="WallLayer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.h" />
@@ -166,6 +167,7 @@
     <ClInclude Include="Slim.h" />
     <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="VectorHelper.h" />
+    <ClInclude Include="WallLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
