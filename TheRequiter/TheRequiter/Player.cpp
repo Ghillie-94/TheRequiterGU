@@ -26,6 +26,9 @@ Player::Player()
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
 
+	attackOffset = sf::Vector2f(50, 0);
+	attackBoxScale = sf::Vector2f(0.25f, 0.25f);
+
 	LoadAnimation();
 	
 }

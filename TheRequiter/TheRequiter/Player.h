@@ -31,7 +31,10 @@ private:
     int health;
     bool hasMovedRight;
 
-    
+protected:
+
+    sf::Vector2f attackOffset;
+    sf::Vector2f attackBoxScale;
 
 
 };
