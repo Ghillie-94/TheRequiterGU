@@ -22,6 +22,8 @@ private:
     sf::Vector2f twoFramesOldPos;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
+
+    void LoadAnimation();
   
 
     bool hasAttacked;

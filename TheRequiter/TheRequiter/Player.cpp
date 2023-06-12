@@ -25,6 +25,8 @@ Player::Player()
 	collisionOffset = sf::Vector2f(0, 30);
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
+
+	LoadAnimation();
 	
 }
 
@@ -204,4 +206,53 @@ void Player::UpdateAcceleration()
 		
 	}
 
+}
+
+void Player::LoadAnimation()
+{
+	//LOAD ANIMATIONS
+	//load stand animation
+	std::vector<sf::Texture> stand;
+	int numOfFrames = 2;
+	std::string baseFilePath = "Assets/Frank/Idle";
+	std::string fileType = "png";
+
+	//create loop to populate vector
+	for (int i = 0; i > numOfFrames; ++i)
+	{
+		stand.push_back(sf::Texture());
+	}
+
+	//load walk animation
+	std::vector<sf::Texture> walk;
+	numOfFrames = 4;
+	baseFilePath = "Assets/Frank/Walk";
+
+	//create loop to populate vector
+	for (int i = 0; i > numOfFrames; ++i)
+	{
+		walk.push_back(sf::Texture());
+	}
+
+	//load jab animation
+	std::vector<sf::Texture> jab;
+	numOfFrames = 3;
+	baseFilePath = "Assets/Frank/Jab";
+
+	//create loop to populate vector
+	for (int i = 0; i > numOfFrames; ++i)
+	{
+		jab.push_back(sf::Texture());
+	}
+
+	//load overhand animation
+	std::vector<sf::Texture> overhand;
+	numOfFrames = 3;
+	baseFilePath = "Assets/Frank/Overhand";
+
+	//create loop to populate vector
+	for (int i = 0; i > numOfFrames; ++i)
+	{
+		overhand.push_back(sf::Texture());
+	}
 }
