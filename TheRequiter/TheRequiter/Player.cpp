@@ -157,13 +157,15 @@ void Player::HandleCollision(SpriteObject& other)
 	SetPosition(newPos);
 }
 
-void Player::AttackCheck()
+sf::FloatRect Player::AttackCheck()
 {
 	//For attacking - use a rectangle representing the player's attack area, and set it's position to the player's plus an offset
 	//You will need a function on the Player to check if the attack is hitting a particular enemy
 	//have a bool for whether that attack is active
 	//Set that bool to true in the update function if they pressed the button down, otherwise set it to false
 	//so it will only be true for one frame.
+
+
 }
 
 void Player::ChangeHealth(int damage)

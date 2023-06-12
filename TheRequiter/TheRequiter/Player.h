@@ -11,7 +11,7 @@ public:
     Player();
     void Update(sf::Time frameTime) override;
     void HandleCollision(SpriteObject& other) override;
-    void AttackCheck();
+
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
 
@@ -25,9 +25,14 @@ private:
 
     void LoadAnimation();
   
+    sf::FloatRect AttackCheck();
 
     bool hasAttacked;
     int health;
     bool hasMovedRight;
+
+    
+
+
 };
 
