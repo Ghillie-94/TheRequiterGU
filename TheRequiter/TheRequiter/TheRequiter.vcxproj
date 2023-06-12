@@ -144,7 +144,9 @@
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Slim.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
     <ClCompile Include="TheRequiter.cpp" />
     <ClCompile Include="LevelScreen.cpp" />
@@ -154,8 +156,10 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="LevelScreen.h" />
+    <ClInclude Include="Slim.h" />
     <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="VectorHelper.h" />
   </ItemGroup>
