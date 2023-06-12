@@ -144,6 +144,7 @@
     <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Barrier.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="Easing.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LosePanel.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="AssetManager.h" />
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="Easing.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LosePanel.h" />
