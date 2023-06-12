@@ -1,11 +1,17 @@
 #pragma once
 #include "Screen.h"
 #include "Player.h"
-#include "Boss.h"
-#include ""
+#include "Barrier.h"
+#include "WinPanel.h"
+#include "LosePanel.h"
+#include "Game.h"
+#include "AssetManager.h"
+
 #include <SFML/Graphics.hpp>
 
 class Game;
+class Enemy;
+class Parallax;
 
 class LevelScreen :
     public Screen
