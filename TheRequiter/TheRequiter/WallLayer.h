@@ -1,7 +1,7 @@
 #pragma once
-#include "SpriteObject.h"
+#include "Parallax.h"
 class WallLayer :
-    public SpriteObject
+    public Parallax
 {
 };
 

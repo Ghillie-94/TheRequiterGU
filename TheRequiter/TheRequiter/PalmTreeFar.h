@@ -1,7 +1,7 @@
 #pragma once
-#include "SpriteObject.h"
+#include "Parallax.h"
 class PalmTreeFar :
-    public SpriteObject
+    public Parallax
 {
 };
 

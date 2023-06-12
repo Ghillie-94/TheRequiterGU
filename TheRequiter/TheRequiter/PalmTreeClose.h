@@ -1,7 +1,7 @@
 #pragma once
-#include "SpriteObject.h"
+#include "Parallax.h"
 class PalmTreeClose :
-    public SpriteObject
+    public Parallax
 {
 };
 

@@ -1,7 +1,7 @@
 #pragma once
-#include "SpriteObject.h"
+#include "Parallax.h"
 class PierFerrisLayer :
-    public SpriteObject
+    public Parallax
 {
 };
 
