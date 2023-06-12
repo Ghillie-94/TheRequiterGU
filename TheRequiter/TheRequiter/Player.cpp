@@ -170,4 +170,27 @@ sf::Vector2f Player::GetVelocity()
 
 void Player::UpdateAcceleration()
 {
+	const float ACCEL = 1000.0f;
+	// Update acceleration
+	acceleration.x = 0;
+	acceleration.y = 0;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+	{
+		acceleration.x = -ACCEL;
+
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+	{
+		acceleration.x = ACCEL;
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+	{
+		acceleration.x = -ACCEL;
+
+	}
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+	{
+		acceleration.x = ACCEL;
+	}
+
 }
