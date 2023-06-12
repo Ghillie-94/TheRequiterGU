@@ -19,9 +19,14 @@ public:
 private:
 
     void Restart();
+    void LoadLevel(std::string fileName);
+    void LoadTitleScreen();
 
     bool isTitleScreen;
     bool isBossAlive;
+    bool isPlayerAlive;
+
+    sf::View camera;
 
 };
 
