@@ -1,5 +1,8 @@
 #pragma once
 #include "Screen.h"
+#include "Player.h"
+#include "Boss.h"
+#include ""
 #include <SFML/Graphics.hpp>
 
 class Game;
@@ -28,6 +31,8 @@ private:
     bool isTitleScreen;
     bool isBossAlive;
     bool isPlayerAlive;
+
+    
 
     sf::View camera;
 
