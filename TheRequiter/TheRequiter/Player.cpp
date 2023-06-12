@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "AssetManager.h"
+#include "Animation.h"
 
 enum class PhysicsType
 {
