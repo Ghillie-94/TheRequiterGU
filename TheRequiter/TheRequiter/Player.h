@@ -10,8 +10,8 @@ public:
     void Update(sf::Time frameTime) override;
     void HandleCollision(SpriteObject& other) override;
     void AttackCheck();
-    void ChangeHealth();
-    void GetVelocity();
+    void ChangeHealth(int damage);
+    sf::Vector2f GetVelocity();
 
 private:
 
