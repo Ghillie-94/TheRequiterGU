@@ -13,6 +13,10 @@ Animation::Animation(sf::Sprite* newAnimatedSprite, std::string newBaseFilePath,
 {
 }
 
+Animation::Animation()
+{
+}
+
 void Animation::AddClip(std::string clipName, int numFrames, bool shouldLoop)
 {
 	Clip newClip;

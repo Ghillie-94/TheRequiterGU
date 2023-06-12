@@ -12,18 +12,20 @@ enum class PhysicsType
 };
 
 Player::Player()
-	: SpriteObject()
+	: Animation()
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
 	, hasAttacked(false)
 	, health(200)
 	, hasMovedRight(false)
+	
 {
 	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
 	collisionOffset = sf::Vector2f(0, 30);
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
+	
 }
 
 void Player::Update(sf::Time frameTime)
@@ -181,6 +183,7 @@ void Player::UpdateAcceleration()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		acceleration.x = -ACCEL;
+		
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -195,6 +198,10 @@ void Player::UpdateAcceleration()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		acceleration.x = ACCEL;
+	}
+	else 
+	{
+		
 	}
 
 }

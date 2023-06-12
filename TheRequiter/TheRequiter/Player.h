@@ -1,7 +1,9 @@
 #pragma once
 #include "SpriteObject.h"
+#include "Animation.h"
+
 class Player :
-    public SpriteObject
+    public Animation
 {
 
 public:
@@ -20,6 +22,7 @@ private:
     sf::Vector2f twoFramesOldPos;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
+  
 
     bool hasAttacked;
     int health;

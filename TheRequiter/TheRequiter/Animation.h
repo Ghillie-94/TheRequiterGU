@@ -15,6 +15,7 @@ class Animation :
 
 public:
     Animation(sf::Sprite* newAnimatedSprite, std::string newBaseFilePath, float framesPerSecond, std::string newFileType = "png");
+    Animation();
     void AddClip(std::string clipName, int numFrames, bool shouldLoop = false);
     void Play();
     void Play(std::string clipToPlay);
