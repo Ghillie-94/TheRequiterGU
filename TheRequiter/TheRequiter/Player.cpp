@@ -16,6 +16,9 @@ Player::Player()
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
+	, hasAttacked(false)
+	, health(200)
+	, hasMovedRight(false)
 {
 	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
 	collisionOffset = sf::Vector2f(0, 30);
