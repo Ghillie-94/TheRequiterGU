@@ -14,6 +14,9 @@ public:
 
     void Update(sf::Time frameTime) override;
     void Draw(sf::RenderTarget& target) override;
+
+    void TriggerWin(bool win);
+    void TriggerLose(bool lose);
     
 
 private:
