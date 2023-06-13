@@ -160,6 +160,7 @@ void Player::HandleCollision(SpriteObject& other)
 	SetPosition(newPos);
 }
 
+
 sf::FloatRect Player::AttackCheck()
 {
 	//For attacking - use a rectangle representing the player's attack area, and set it's position to the player's plus an offset
@@ -167,9 +168,29 @@ sf::FloatRect Player::AttackCheck()
 	//have a bool for whether that attack is active
 	//Set that bool to true in the update function if they pressed the button down, otherwise set it to false
 	//so it will only be true for one frame.
+	sf::FloatRect bounds = sprite.getGlobalBounds();
+	bounds.width = bounds.width * attackBoxScale.x;
+	bounds.height = bounds.height * attackBoxScale.y;
 
+	sf::Vector2f _position = sprite.getPosition();
+	sf::Vector2f centre = _position;
+
+	
+	centre.x += bounds.width * 0.5f;
+	centre.y += bounds.height * 0.5f;
+
+	centre.x += attackOffset.x;
+	centre.y += attackOffset.y;
+
+	bounds.left = centre.x - bounds.width * 0.5f;
+	bounds.top = centre.y - bounds.height * 0.5f;
+
+	return bounds;
 
 }
+
+
+
 
 void Player::ChangeHealth(int damage)
 {
@@ -223,7 +244,7 @@ void Player::LoadAnimation()
 	std::string fileType = "png";
 
 	//create loop to populate vector
-	for (int i = 0; i > numOfFrames; ++i)
+	for (int i = 0; i < numOfFrames; ++i)
 	{
 		stand.push_back(sf::Texture());
 	}
@@ -234,7 +255,7 @@ void Player::LoadAnimation()
 	baseFilePath = "Assets/Frank/Walk";
 
 	//create loop to populate vector
-	for (int i = 0; i > numOfFrames; ++i)
+	for (int i = 0; i < numOfFrames; ++i)
 	{
 		walk.push_back(sf::Texture());
 	}
@@ -245,7 +266,7 @@ void Player::LoadAnimation()
 	baseFilePath = "Assets/Frank/Jab";
 
 	//create loop to populate vector
-	for (int i = 0; i > numOfFrames; ++i)
+	for (int i = 0; i < numOfFrames; ++i)
 	{
 		jab.push_back(sf::Texture());
 	}
@@ -256,7 +277,7 @@ void Player::LoadAnimation()
 	baseFilePath = "Assets/Frank/Overhand";
 
 	//create loop to populate vector
-	for (int i = 0; i > numOfFrames; ++i)
+	for (int i = 0; i < numOfFrames; ++i)
 	{
 		overhand.push_back(sf::Texture());
 	}

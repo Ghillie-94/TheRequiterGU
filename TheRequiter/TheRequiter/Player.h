@@ -12,6 +12,7 @@ public:
     void Update(sf::Time frameTime) override;
     void HandleCollision(SpriteObject& other) override;
 
+
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
 
@@ -35,6 +36,8 @@ protected:
 
     sf::Vector2f attackOffset;
     sf::Vector2f attackBoxScale;
+
+    
 
 
 };
