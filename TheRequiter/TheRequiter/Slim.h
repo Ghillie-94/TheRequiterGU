@@ -6,7 +6,7 @@ class Slim :
 
 public:
 
-    Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2);
+    Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr);
 
     void Update(sf::Time frameTime) override;
 
@@ -34,5 +34,6 @@ private:
     sf::Vector2f playerPos;
     const sf::Vector2f* targetPoint;
     sf::Vector2f velocity;
+    Player* playerPtr;
 };
 
