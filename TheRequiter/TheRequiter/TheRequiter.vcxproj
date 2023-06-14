@@ -154,6 +154,7 @@
     <ClCompile Include="Parallax.cpp" />
     <ClCompile Include="PierFerrisLayer.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAttackBox.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Slim.cpp" />
     <ClCompile Include="SpriteObject.cpp" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Parallax.h" />
     <ClInclude Include="PierFerrisLayer.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerAttackBox.h" />
     <ClInclude Include="Screen.h" />
     <ClInclude Include="LevelScreen.h" />
     <ClInclude Include="Slim.h" />
