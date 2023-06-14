@@ -28,6 +28,7 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 void Slim::Update(sf::Time frameTime)
 {
 	CheckHealth();
+	CheckDistance(playerPtr);
 
 	if (!playerInRange) 
 	{

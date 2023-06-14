@@ -148,6 +148,7 @@ void Player::Update(sf::Time frameTime)
 
 void Player::HandleCollision(SpriteObject& other)
 {
+	
 	const float REBOUNDSPEED = 100;
 	sf::Vector2f depth = GetCollisionDepth(other);
 	sf::Vector2f newPos = GetPosition();
