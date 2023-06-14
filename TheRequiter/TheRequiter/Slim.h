@@ -15,6 +15,8 @@ public:
     void CheckHealth();
 
     void ChangeHealth(int damage) override;
+    void AttackTimer() override;
+    void DoAttack() override;
     void CheckDistance(Player* newPlayerPtr);
 
     void SetCanAttack(bool newCanAttack);
@@ -36,5 +38,7 @@ private:
     const sf::Vector2f* targetPoint;
     sf::Vector2f velocity;
     Player* playerPtr;
+    sf::Clock cooldownClock;
+    sf::Time cooldownTimer;
 };
 

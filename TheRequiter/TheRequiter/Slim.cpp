@@ -16,6 +16,9 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, velocity(0, 0)
 	, playerPtr(newPlayerPtr)
 {
+	sf::Clock cooldownClock;
+	sf::Time cooldownTimer;
+
 	// Update velocity
 	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
 	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
@@ -86,6 +89,23 @@ void Slim::CheckHealth()
 void Slim::ChangeHealth(int damage)
 {
 	health = health - damage;
+}
+
+void Slim::AttackTimer()
+{
+	if (hasAttacked)
+	{
+		cooldownClock.getElapsedTime() = cooldownTimer;
+		if (cooldownTimer > sf::seconds(1.5f))
+		{
+			SetHasAttacked(false);
+		}
+
+	}
+}
+
+void Slim::DoAttack()
+{
 }
 
 void Slim::CheckDistance(Player* newPlayerPtr)
