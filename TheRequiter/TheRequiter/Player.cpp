@@ -27,6 +27,9 @@ Player::Player()
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
 
+	sf::Clock cooldownClock;
+	sf::Time cooldownTimer;
+
 	
 
 	LoadAnimation();
@@ -178,14 +181,24 @@ void Player::JabAttack()
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
 		{
 			SetHasAttacked(true);
-
+			cooldownClock.restart();
 		}
 	}
 }
 
 void Player::AttackCooldown()
 {
+	if (hasAttacked)
+	{
+		cooldownClock.getElapsedTime() = coolDownTimer;
+		if (coolDownTimer > sf::seconds(2)) 
+		{
+			SetHasAttacked(false);
+		}
+
+	}
 }
+
 
 void Player::OverhandAttack()
 {
