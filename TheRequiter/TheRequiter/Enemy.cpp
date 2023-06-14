@@ -34,3 +34,8 @@ void Enemy::DoAttack()
 {
 	//handled in child class
 }
+
+void Enemy::AttackCheck()
+{
+	//handled in child class
+}

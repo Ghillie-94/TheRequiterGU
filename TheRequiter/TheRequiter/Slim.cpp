@@ -96,7 +96,7 @@ void Slim::AttackTimer()
 	if (hasAttacked)
 	{
 		cooldownClock.getElapsedTime() = cooldownTimer;
-		if (cooldownTimer > sf::seconds(1.5f))
+		if (cooldownTimer > sf::seconds(2.5f))
 		{
 			SetHasAttacked(false);
 		}
