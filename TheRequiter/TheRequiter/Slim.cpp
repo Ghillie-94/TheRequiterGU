@@ -87,3 +87,36 @@ void Slim::ChangeHealth(int damage)
 {
 	health = health - damage;
 }
+
+void Slim::CheckDistance(Player* newPlayerPtr)
+{
+	bool leftSideEnemy = false;
+	int targetRange = 300;
+	playerPtr = newPlayerPtr;
+	float left;
+	float right;
+	float playerPosition = playerPtr->GetPosition().x;
+	float platformPos = GetPosition().x;
+	if (platformPos < playerPosition)
+	{
+		leftSideEnemy = true;
+	}
+	if (!leftSideEnemy)
+	{
+		left = playerPosition;
+		right = platformPos;
+	}
+	else
+	{
+		right = playerPosition;
+		left = platformPos;
+	}
+	if ((right - left) < targetRange)
+	{
+		SetInRange(true);
+	}
+	else
+	{
+		SetInRange(false);
+	}
+}

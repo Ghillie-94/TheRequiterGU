@@ -15,6 +15,7 @@ public:
     void CheckHealth();
 
     void ChangeHealth(int damage);
+    void CheckDistance(Player* newPlayerPtr);
 
     void SetCanAttack(bool newCanAttack);
     void SetHasAttacked(bool newHasAttacked);
