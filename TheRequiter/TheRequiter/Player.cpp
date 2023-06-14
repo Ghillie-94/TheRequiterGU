@@ -182,6 +182,7 @@ void Player::JabAttack()
 		{
 			SetHasAttacked(true);
 			cooldownClock.restart();
+			AttackCooldown();
 		}
 	}
 }
