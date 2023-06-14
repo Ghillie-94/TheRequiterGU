@@ -7,6 +7,7 @@ class Enemy :
 public:
     Enemy(sf::Vector2f newPosition);
 
+    
     void Die();
 };
 

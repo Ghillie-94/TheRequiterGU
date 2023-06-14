@@ -5,6 +5,8 @@ Enemy::Enemy(sf::Vector2f newPosition)
 {
 }
 
+
+
 void Enemy::Die()
 {
 	alive = false;
