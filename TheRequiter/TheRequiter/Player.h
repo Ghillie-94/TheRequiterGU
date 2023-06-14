@@ -13,6 +13,8 @@ public:
     void Update(sf::Time frameTime) override;
     void HandleCollision(SpriteObject& other) override;
 
+    void SetCanAttack(bool newCanAttack);
+    void SetHasAttacked(bool newHasAttacked);
 
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
@@ -31,6 +33,7 @@ private:
   
     void AttackCheck();
 
+    bool canAttack;
     bool hasAttacked;
     int health;
     bool hasMovedRight;

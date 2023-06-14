@@ -160,6 +160,16 @@ void Player::HandleCollision(SpriteObject& other)
 	SetPosition(newPos);
 }
 
+void Player::SetCanAttack(bool newCanAttack)
+{
+	canAttack = newCanAttack;
+}
+
+void Player::SetHasAttacked(bool newHasAttacked)
+{
+	hasAttacked = newHasAttacked;
+}
+
 
 void Player::AttackCheck()
 {
