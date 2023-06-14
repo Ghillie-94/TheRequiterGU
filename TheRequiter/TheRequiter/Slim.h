@@ -19,7 +19,7 @@ public:
 
     void SetCanAttack(bool newCanAttack);
     void SetHasAttacked(bool newHasAttacked);
-    void SetInRange(bool newPlayerInRange);
+    
 
     void CheckRange(Player* newPlayerPtr);
 

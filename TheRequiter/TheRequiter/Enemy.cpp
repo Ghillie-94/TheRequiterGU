@@ -8,6 +8,11 @@ Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr)
 
 
 
+void Enemy::SetInRange(bool newPlayerInRange)
+{
+	playerInRange = newPlayerInRange;
+}
+
 void Enemy::Die()
 {
 	alive = false;

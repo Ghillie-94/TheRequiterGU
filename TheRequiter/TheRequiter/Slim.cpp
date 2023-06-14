@@ -131,11 +131,7 @@ void Slim::SetHasAttacked(bool newHasAttacked)
 	hasAttacked = newHasAttacked;
 }
 
-void Slim::SetInRange(bool newPlayerInRange)
-{
-	playerInRange = newPlayerInRange;
-	
-}
+
 
 void Slim::CheckRange(Player* newPlayerPtr)
 {
