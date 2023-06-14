@@ -98,7 +98,7 @@ void Boss::AttackTimer()
 	if (hasAttacked)
 	{
 		cooldownClock.getElapsedTime() = cooldownTimer;
-		if (cooldownTimer > sf::seconds(2.5f))
+		if (cooldownTimer > sf::seconds(3.5f))
 		{
 			SetHasAttacked(false);
 		}
@@ -110,7 +110,7 @@ void Boss::DoAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
-		playerPtr->ChangeHealth(15);
+		playerPtr->ChangeHealth(35);
 		SetHasAttacked(true);
 		cooldownClock.restart();
 		AttackTimer();

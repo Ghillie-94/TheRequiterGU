@@ -147,6 +147,7 @@
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Easing.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EnemyAttackBox.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="LosePanel.cpp" />
     <ClCompile Include="PalmTreeClose.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Easing.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EnemyAttackBox.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="LosePanel.h" />
     <ClInclude Include="PalmTreeClose.h" />
