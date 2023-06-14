@@ -12,6 +12,9 @@ public:
     void Die();
 
     virtual void ChangeHealth(int damage);
+    virtual void AttackTimer();
+    virtual void DoAttack();
+
 
 private:
     Player* playerPtr;
