@@ -1,6 +1,7 @@
 #pragma once
 #include "SpriteObject.h"
 #include "Animation.h"
+#include "PlayerAttackBox.h"
 
 class Player :
     public Animation
@@ -24,18 +25,17 @@ private:
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
 
+    PlayerAttackBox attackBox;
+
     void LoadAnimation();
   
-    sf::FloatRect AttackCheck();
+    void AttackCheck();
 
     bool hasAttacked;
     int health;
     bool hasMovedRight;
 
-protected:
 
-    sf::Vector2f attackOffset;
-    sf::Vector2f attackBoxScale;
 
     
 

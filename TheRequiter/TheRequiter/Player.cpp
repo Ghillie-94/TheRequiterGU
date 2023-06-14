@@ -16,6 +16,7 @@ Player::Player()
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
+	, attackBox()
 	, hasAttacked(false)
 	, health(200)
 	, hasMovedRight(false)
@@ -26,8 +27,7 @@ Player::Player()
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
 
-	attackOffset = sf::Vector2f(50, 0);
-	attackBoxScale = sf::Vector2f(0.25f, 0.25f);
+	
 
 	LoadAnimation();
 	
@@ -161,7 +161,7 @@ void Player::HandleCollision(SpriteObject& other)
 }
 
 
-sf::FloatRect Player::AttackCheck()
+void Player::AttackCheck()
 {
 	//For attacking - use a rectangle representing the player's attack area, and set it's position to the player's plus an offset
 	//You will need a function on the Player to check if the attack is hitting a particular enemy
