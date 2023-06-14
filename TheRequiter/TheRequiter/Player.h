@@ -20,6 +20,9 @@ public:
     void AttackCooldown();
     void OverhandAttack();
 
+    bool CheckAlive();
+
+
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
 

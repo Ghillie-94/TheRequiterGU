@@ -228,6 +228,18 @@ void Player::OverhandAttack()
 	}
 }
 
+bool Player::CheckAlive()
+{
+	if (this->alive == false)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
 
 void Player::AttackCheck()
 {
