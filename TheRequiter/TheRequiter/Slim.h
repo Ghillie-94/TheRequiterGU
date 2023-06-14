@@ -21,7 +21,7 @@ public:
     void SetHasAttacked(bool newHasAttacked);
     void SetInRange(bool newPlayerInRange);
 
-    void CheckRange();
+    void CheckRange(Player* newPlayerPtr);
 
 private:
 

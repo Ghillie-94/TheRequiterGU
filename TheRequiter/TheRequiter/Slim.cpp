@@ -120,3 +120,52 @@ void Slim::CheckDistance(Player* newPlayerPtr)
 		SetInRange(false);
 	}
 }
+
+void Slim::SetCanAttack(bool newCanAttack)
+{
+	canAttack = newCanAttack;
+}
+
+void Slim::SetHasAttacked(bool newHasAttacked)
+{
+	hasAttacked = newHasAttacked;
+}
+
+void Slim::SetInRange(bool newPlayerInRange)
+{
+	playerInRange = newPlayerInRange;
+	
+}
+
+void Slim::CheckRange(Player* newPlayerPtr)
+{
+	bool leftSideEnemy = false;
+	int targetRange = 300;
+	playerPtr = newPlayerPtr;
+	float left;
+	float right;
+	float playerPosition = playerPtr->GetPosition().x;
+	float platformPos = GetPosition().x;
+	if (platformPos < playerPosition)
+	{
+		leftSideEnemy = true;
+	}
+	if (!leftSideEnemy)
+	{
+		left = playerPosition;
+		right = platformPos;
+	}
+	else
+	{
+		right = playerPosition;
+		left = platformPos;
+	}
+	if ((right - left) < targetRange)
+	{
+		SetInRange(true);
+	}
+	else
+	{
+		SetInRange(false);
+	}
+}
