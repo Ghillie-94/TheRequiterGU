@@ -1,4 +1,5 @@
 #include "Slim.h"
+#include "VectorHelper.h"
 
 
 
@@ -7,12 +8,17 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2)
 	, health(75)
 	, canAttack(false)
 	, hasAttacked(false)
+	, playerInRange(false)
 	, SPEED(80)
 	, POS1(newPos1)
 	, POS2(newPos2)
 	, targetPoint(&POS2)
 	, velocity(0, 0)
 {
+	// Update velocity
+	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
+	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
+	velocity = vectorToNewTarget * SPEED;
 }
 
 void Slim::Update(sf::Time frameTime)
@@ -22,6 +28,12 @@ void Slim::Update(sf::Time frameTime)
 
 void Slim::SetPosition(sf::Vector2f newPosition)
 {
+	Enemy::SetPosition(newPosition);
+
+	// Update velocity
+	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
+	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
+	velocity = vectorToNewTarget * SPEED;
 }
 
 void Slim::CheckHealth()
