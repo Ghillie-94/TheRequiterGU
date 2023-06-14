@@ -3,6 +3,8 @@
 Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr)
 	:Animation()
 	, playerPtr(newPlayerPtr)
+	, playerInRange(false)
+	, health()
 {
 }
 
@@ -16,4 +18,9 @@ void Enemy::SetInRange(bool newPlayerInRange)
 void Enemy::Die()
 {
 	alive = false;
+}
+
+void Enemy::ChangeHealth(int damage)
+{
+	health = health - damage;
 }

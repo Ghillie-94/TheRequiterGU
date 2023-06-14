@@ -2,6 +2,7 @@
 #include "SpriteObject.h"
 #include "Animation.h"
 #include "PlayerAttackBox.h"
+#include "Enemy.h"
 
 class Player :
     public Animation
@@ -9,7 +10,7 @@ class Player :
 
 public:
 
-    Player();
+    Player(Enemy* newEnemyPtr);
     void Update(sf::Time frameTime) override;
     void HandleCollision(SpriteObject& other) override;
 
@@ -43,7 +44,7 @@ private:
     sf::Clock cooldownClock;
     sf::Time coolDownTimer;
 
-
+    Enemy* enemyPtr;
 
     
 

@@ -11,8 +11,11 @@ public:
     void SetInRange(bool newPlayerInRange);
     void Die();
 
+    virtual void ChangeHealth(int damage);
+
 private:
     Player* playerPtr;
     bool playerInRange;
+    int health;
 };
 

@@ -11,7 +11,7 @@ enum class PhysicsType
 	VELOCITY_VERLET
 };
 
-Player::Player()
+Player::Player(Enemy* newEnemyPtr)
 	: Animation()
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
@@ -20,6 +20,7 @@ Player::Player()
 	, hasAttacked(false)
 	, health(200)
 	, hasMovedRight(false)
+	, enemyPtr(newEnemyPtr)
 	
 {
 	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
@@ -180,6 +181,7 @@ void Player::JabAttack()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
 		{
+			enemyPtr->ChangeHealth(20);
 			SetHasAttacked(true);
 			cooldownClock.restart();
 			AttackCooldown();
