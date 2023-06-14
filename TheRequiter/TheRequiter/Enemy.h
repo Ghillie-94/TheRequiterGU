@@ -1,9 +1,12 @@
 #pragma once
-#include "SpriteObject.h"
+#include "Animation.h"
+
 class Enemy :
-    public SpriteObject
+    public Animation
 {
 public:
     Enemy(sf::Vector2f newPosition);
+
+    void Die();
 };
 

@@ -1,6 +1,11 @@
 #include "Enemy.h"
 
 Enemy::Enemy(sf::Vector2f newPosition)
-	:SpriteObject()
+	:Animation()
 {
+}
+
+void Enemy::Die()
+{
+	alive = false;
 }
