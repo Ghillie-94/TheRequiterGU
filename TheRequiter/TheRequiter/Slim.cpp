@@ -106,6 +106,18 @@ void Slim::AttackTimer()
 
 void Slim::DoAttack()
 {
+	if (canAttack && !hasAttacked)
+	{
+		playerPtr->ChangeHealth(15);
+		SetHasAttacked(true);
+		cooldownClock.restart();
+		AttackTimer();
+
+	}
+}
+
+void Slim::AttackCheck()
+{
 }
 
 void Slim::CheckDistance(Player* newPlayerPtr)
