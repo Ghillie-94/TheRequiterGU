@@ -24,6 +24,43 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2)
 void Slim::Update(sf::Time frameTime)
 {
 	CheckHealth();
+
+	if (!playerInRange) 
+	{
+		float frameSeconds = frameTime.asSeconds();
+
+		sf::Vector2f newPos = GetPosition();
+
+		sf::Vector2f toMove = velocity * frameSeconds;
+		float squareDistToMove = VectorHelper::SquareMagnitude(toMove);
+
+		sf::Vector2f vectorToTarget = *targetPoint - newPos;
+		float squareDistToTarget = VectorHelper::SquareMagnitude(vectorToTarget);
+
+		if (squareDistToMove >= squareDistToTarget)
+		{
+			// We arrived!
+
+			// Set us to be on the target point
+			newPos = *targetPoint;
+
+			// Change our target point to be the other one
+			if (targetPoint == &POS1)
+				targetPoint = &POS2;
+			else
+				targetPoint = &POS1;
+		}
+		else
+		{
+			newPos += toMove;
+		}
+
+		SetPosition(newPos);
+	}
+	else
+	{
+
+	}
 }
 
 void Slim::SetPosition(sf::Vector2f newPosition)
