@@ -40,6 +40,8 @@ private:
     bool hasAttacked;
     int health;
     bool hasMovedRight;
+    sf::Clock cooldownClock;
+    sf::Time coolDownTimer;
 
 
 

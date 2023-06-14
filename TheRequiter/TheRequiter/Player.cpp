@@ -192,7 +192,7 @@ void Player::AttackCooldown()
 	if (hasAttacked)
 	{
 		cooldownClock.getElapsedTime() = coolDownTimer;
-		if (coolDownTimer > sf::seconds(2)) 
+		if (coolDownTimer > sf::seconds(1.5f)) 
 		{
 			SetHasAttacked(false);
 		}
