@@ -14,6 +14,7 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, targetPoint(&POS2)
 	, velocity(0, 0)
 	, playerPtr(newPlayerPtr)
+	, bossAttackBox(this)
 {
 
 	sf::Clock cooldownClock;
