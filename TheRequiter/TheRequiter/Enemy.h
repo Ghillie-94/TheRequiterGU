@@ -14,7 +14,7 @@ public:
     virtual void ChangeHealth(int damage);
     virtual void AttackTimer();
     virtual void DoAttack();
-    virtual void AttackCheck();
+    virtual void AttackCheck(bool newHasAttacked);
 
 
 private:

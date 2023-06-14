@@ -118,8 +118,9 @@ void Boss::DoAttack()
 	}
 }
 
-void Boss::AttackCheck()
+void Boss::AttackCheck(bool newCanAttack)
 {
+	canAttack = newCanAttack;
 }
 
 void Boss::CheckDistance(Player* newPlayerPtr)
@@ -155,10 +156,7 @@ void Boss::CheckDistance(Player* newPlayerPtr)
 	}
 }
 
-void Boss::SetCanAttack(bool newCanAttack)
-{
-	canAttack = newCanAttack;
-}
+
 
 void Boss::SetHasAttacked(bool newHasAttacked)
 {

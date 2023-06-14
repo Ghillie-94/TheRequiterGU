@@ -1,5 +1,6 @@
 #pragma once
 #include "Enemy.h"
+#include "EnemyAttackBox.h"
 class Boss :
     public Enemy
 {
@@ -16,10 +17,10 @@ public:
     void ChangeHealth(int damage) override;
     void AttackTimer() override;
     void DoAttack() override;
-    void AttackCheck() override;
+    void AttackCheck(bool newCanAttack) override;
     void CheckDistance(Player* newPlayerPtr);
 
-    void SetCanAttack(bool newCanAttack);
+    
     void SetHasAttacked(bool newHasAttacked);
 
 
@@ -40,5 +41,6 @@ private:
     Player* playerPtr;
     sf::Clock cooldownClock;
     sf::Time cooldownTimer;
+    EnemyAttackBox bossAttackBox;
 };
 
