@@ -20,6 +20,8 @@ public:
     void SetHasAttacked(bool newHasAttacked);
     void SetInRange(bool newPlayerInRange);
 
+    void CheckRange();
+
 private:
 
     int health;
