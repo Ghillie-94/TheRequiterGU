@@ -173,6 +173,18 @@ void Player::SetHasAttacked(bool newHasAttacked)
 
 void Player::JabAttack()
 {
+	if (canAttack && !hasAttacked)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
+		{
+			SetHasAttacked(true);
+
+		}
+	}
+}
+
+void Player::AttackCooldown()
+{
 }
 
 void Player::OverhandAttack()
@@ -283,4 +295,17 @@ void Player::LoadAnimation()
 	{
 		overhand.push_back(sf::Texture());
 	}
+
+	// current animation clip
+	std::vector<sf::Texture>* currentAni = &stand;
+
+	//animation variables
+	float framesPerSecond = 12.0f;
+	sf::Time timePerFrame = sf::seconds(1.0f / framesPerSecond);
+	sf::Clock aniClock;
+	int currentFrame = 0;
+
+	//animation setup
+	Animation playerAnimation;
+
 }
