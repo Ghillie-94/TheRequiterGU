@@ -24,7 +24,7 @@ public:
     void SetHasAttacked(bool newHasAttacked);
     
 
-    void CheckRange(Player* newPlayerPtr);
+    
 
 private:
 
