@@ -203,6 +203,15 @@ void Player::AttackCooldown()
 
 void Player::OverhandAttack()
 {
+	if (canAttack && !hasAttacked)
+	{
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
+		{
+			SetHasAttacked(true);
+			cooldownClock.restart();
+			AttackCooldown();
+		}
+	}
 }
 
 
