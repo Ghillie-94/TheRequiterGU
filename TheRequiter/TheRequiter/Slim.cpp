@@ -59,7 +59,7 @@ void Slim::Update(sf::Time frameTime)
 	}
 	else
 	{
-
+		//TODO move towards player
 	}
 }
 

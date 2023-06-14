@@ -35,6 +35,7 @@ Player::Player()
 
 void Player::Update(sf::Time frameTime)
 {
+
 	const float DRAG_MULT = 1.0f;
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 
@@ -168,6 +169,14 @@ void Player::SetCanAttack(bool newCanAttack)
 void Player::SetHasAttacked(bool newHasAttacked)
 {
 	hasAttacked = newHasAttacked;
+}
+
+void Player::JabAttack()
+{
+}
+
+void Player::OverhandAttack()
+{
 }
 
 

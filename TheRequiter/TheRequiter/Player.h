@@ -15,6 +15,8 @@ public:
 
     void SetCanAttack(bool newCanAttack);
     void SetHasAttacked(bool newHasAttacked);
+    void JabAttack();
+    void OverhandAttack();
 
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
