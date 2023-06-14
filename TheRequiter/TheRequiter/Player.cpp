@@ -168,24 +168,7 @@ sf::FloatRect Player::AttackCheck()
 	//have a bool for whether that attack is active
 	//Set that bool to true in the update function if they pressed the button down, otherwise set it to false
 	//so it will only be true for one frame.
-	sf::FloatRect bounds = sprite.getGlobalBounds();
-	bounds.width = bounds.width * attackBoxScale.x;
-	bounds.height = bounds.height * attackBoxScale.y;
-
-	sf::Vector2f _position = sprite.getPosition();
-	sf::Vector2f centre = _position;
-
 	
-	centre.x += bounds.width * 0.5f;
-	centre.y += bounds.height * 0.5f;
-
-	centre.x += attackOffset.x;
-	centre.y += attackOffset.y;
-
-	bounds.left = centre.x - bounds.width * 0.5f;
-	bounds.top = centre.y - bounds.height * 0.5f;
-
-	return bounds;
 
 }
 
