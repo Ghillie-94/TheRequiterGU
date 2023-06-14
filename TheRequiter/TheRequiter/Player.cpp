@@ -43,6 +43,17 @@ void Player::Update(sf::Time frameTime)
 	const float DRAG_MULT = 1.0f;
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 
+	//Attack input
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
+	{
+		JabAttack();
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
+	{
+		OverhandAttack();
+	}
+
 	switch (physics)
 	{
 	case PhysicsType::FORWARD_EULER:
@@ -179,13 +190,12 @@ void Player::JabAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
-		{
-			enemyPtr->ChangeHealth(20);
-			SetHasAttacked(true);
-			cooldownClock.restart();
-			AttackCooldown();
-		}
+
+		enemyPtr->ChangeHealth(20);
+		SetHasAttacked(true);
+		cooldownClock.restart();
+		AttackCooldown();
+		
 	}
 }
 
@@ -209,6 +219,7 @@ void Player::OverhandAttack()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
 		{
+			enemyPtr->ChangeHealth(40);
 			SetHasAttacked(true);
 			cooldownClock.restart();
 			AttackCooldown();
