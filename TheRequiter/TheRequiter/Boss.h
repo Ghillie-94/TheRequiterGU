@@ -1,12 +1,13 @@
 #pragma once
 #include "Enemy.h"
 #include "EnemyAttackBox.h"
+#include "LevelScreen.h"
 class Boss :
     public Enemy
 {
 public:
 
-    Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr);
+    Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr, LevelScreen* newLevelScreen);
 
     void Update(sf::Time frameTime) override;
 
@@ -42,5 +43,7 @@ private:
     sf::Clock cooldownClock;
     sf::Time cooldownTimer;
     EnemyAttackBox bossAttackBox;
+    LevelScreen* levelScreen;
+
 };
 

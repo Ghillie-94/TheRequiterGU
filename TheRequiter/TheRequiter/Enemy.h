@@ -1,12 +1,13 @@
 #pragma once
 #include "Animation.h"
 #include "Player.h"
+#include "LevelScreen.h"
 
 class Enemy :
     public Animation
 {
 public:
-    Enemy(sf::Vector2f newPosition, Player* newPlayerPtr);
+    Enemy(sf::Vector2f newPosition, Player* newPlayerPtr, LevelScreen* newLevelScreen);
 
     void SetInRange(bool newPlayerInRange);
     void Die();
@@ -21,5 +22,6 @@ private:
     Player* playerPtr;
     bool playerInRange;
     int health;
+    LevelScreen* levelScreen;
 };
 

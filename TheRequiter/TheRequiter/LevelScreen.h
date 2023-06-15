@@ -45,6 +45,9 @@ private:
     //declare a vector array of parallax pointers
     std::vector<Parallax*> parallaxLayers;
 
+    //declare a vector array of barrier pointers
+    std::vector<Barrier*> barriers;
+
     //declare a vector array of enemy pointers
     std::vector<Enemy*> enemies;
     

@@ -1,7 +1,8 @@
 #include "Enemy.h"
 
-Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr)
+Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr, LevelScreen* newLevelScreen)
 	:Animation()
+	, levelScreen(newLevelScreen)
 	, playerPtr(newPlayerPtr)
 	, playerInRange(false)
 	, health()
@@ -35,7 +36,7 @@ void Enemy::DoAttack()
 	//handled in child class
 }
 
-void Enemy::AttackCheck()
+void Enemy::AttackCheck(bool newHasAttacked)
 {
 	//handled in child class
 }

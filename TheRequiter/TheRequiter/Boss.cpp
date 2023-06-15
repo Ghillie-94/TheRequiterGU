@@ -2,8 +2,8 @@
 #include "AssetManager.h"
 #include "VectorHelper.h"
 
-Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr)
-	:Enemy(newPosition, newPlayerPtr)
+Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr, LevelScreen* newLevelScreen)
+	:Enemy(newPosition, newPlayerPtr, newLevelScreen)
 	, health(180)
 	, canAttack(false)
 	, hasAttacked(false)
@@ -15,6 +15,7 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, velocity(0, 0)
 	, playerPtr(newPlayerPtr)
 	, bossAttackBox(this)
+	, levelScreen(newLevelScreen)
 {
 
 	sf::Clock cooldownClock;
@@ -85,6 +86,7 @@ void Boss::CheckHealth()
 	if (health <= 0)
 	{
 		Die();
+		levelScreen->TriggerWin(true);
 	}
 	return;
 }
