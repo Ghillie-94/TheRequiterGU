@@ -12,3 +12,35 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 {
 	//add restart here
 }
+
+void LevelScreen::Update(sf::Time frameTime)
+{
+}
+
+void LevelScreen::Draw(sf::RenderTarget& target)
+{
+}
+
+void LevelScreen::TriggerWin(bool win)
+{
+	isBossAlive = false;
+	winPanel.StartAnimation();
+}
+
+void LevelScreen::TriggerLose(bool lose)
+{
+	isPlayerAlive = false;
+	losePanel.StartAnimation();
+}
+
+void LevelScreen::Restart()
+{
+}
+
+void LevelScreen::LoadLevel(std::string fileName)
+{
+}
+
+void LevelScreen::LoadTitleScreen()
+{
+}
