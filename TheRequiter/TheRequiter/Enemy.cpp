@@ -26,6 +26,11 @@ void Enemy::ChangeHealth(int damage)
 	health = health - damage;
 }
 
+void Enemy::CheckHealth()
+{
+	//handled in child class
+}
+
 void Enemy::AttackTimer()
 {
 	//handled in child class

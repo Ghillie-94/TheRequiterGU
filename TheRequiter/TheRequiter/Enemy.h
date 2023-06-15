@@ -13,6 +13,7 @@ public:
     void Die();
 
     virtual void ChangeHealth(int damage);
+    virtual void CheckHealth();
     virtual void AttackTimer();
     virtual void DoAttack();
     virtual void AttackCheck(bool newHasAttacked);

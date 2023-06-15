@@ -3,5 +3,7 @@
 class Parallax :
     public SpriteObject
 {
+public:
+    Parallax();
 };
 

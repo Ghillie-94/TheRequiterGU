@@ -17,6 +17,10 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, bossAttackBox(this)
 	, levelScreen(newLevelScreen)
 {
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Boss/Idle.png"));
+	collisionOffset = sf::Vector2f(0, 30);
+	collisionScale = sf::Vector2f(0.5f, 0.5f);
+	collisionType = CollisionType::AABB;
 
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;

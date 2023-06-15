@@ -7,6 +7,7 @@
 #include "Game.h"
 #include "AssetManager.h"
 
+
 #include <SFML/Graphics.hpp>
 
 class Game;
@@ -31,12 +32,14 @@ public:
 private:
 
     void Restart();
-    void LoadLevel(std::string fileName);
-    void LoadTitleScreen();
+    bool LoadLevel(std::string fileName);
+    bool LoadLevel(int levelNumber);
+    bool LoadTitleScreen();
 
     bool isTitleScreen;
     bool isBossAlive;
     bool isPlayerAlive;
+    bool gameRunning;
 
     Player player;
     WinPanel winPanel;
@@ -53,6 +56,8 @@ private:
     
 
     sf::View camera;
+
+    int currentLevel;
 
 };
 

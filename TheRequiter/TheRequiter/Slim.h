@@ -6,7 +6,7 @@ class Slim :
 
 public:
 
-    Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr);
+    Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr, LevelScreen* newLevelScreen);
 
     void Update(sf::Time frameTime) override;
 
