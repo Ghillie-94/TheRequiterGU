@@ -70,6 +70,8 @@ void LevelScreen::Update(sf::Time frameTime)
 							player.GetPlayerAttackBox().SetColliding(true);
 						}
 
+						
+
 
 					}
 
@@ -176,11 +178,11 @@ bool LevelScreen::LoadLevel(std::string fileName)
 		}
 		else if (ch == 'S')
 		{
-			enemies.push_back(new Slim(sf::Vector2f(x, y), sf::Vector2f(0, y), sf::Vector2f(gamePointer->GetWindow()->getSize().x, y), &player));
+			enemies.push_back(new Slim(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));
 		}
 		else if (ch == 'B')
 		{
-			enemies.push_back(new Boss(sf::Vector2f(x, y), sf::Vector2f(0, y), sf::Vector2f(gamePointer->GetWindow()->getSize().x, y), &player));
+			enemies.push_back(new Boss(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));
 		}
 		
 		else if (ch == '-')
