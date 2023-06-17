@@ -20,6 +20,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, parallaxLayers()
 	, currentLevel(1)
 	, barriers()
+	, vBarriers()
 	, enemies()
 	
 
@@ -211,7 +212,7 @@ bool LevelScreen::LoadLevel(std::string fileName)
 	inFile.close();
 	//load barriers seperately as they overlap with wall layer
 	barriers.push_back(new Barrier(sf::Vector2f(0, 800))), new Barrier(sf::Vector2f(0,1080));
-	
+	vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 960))), new VerticalBarrier(sf::Vector2f(1920, 960));
 
 	gameRunning = true;
 

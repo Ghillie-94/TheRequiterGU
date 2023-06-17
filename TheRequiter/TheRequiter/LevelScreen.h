@@ -2,6 +2,7 @@
 #include "Screen.h"
 #include "Player.h"
 #include "Barrier.h"
+#include "VerticalBarrier.h"
 #include "WinPanel.h"
 #include "LosePanel.h"
 #include "Game.h"
@@ -50,6 +51,7 @@ private:
 
     //declare a vector array of barrier pointers
     std::vector<Barrier*> barriers;
+    std::vector<VerticalBarrier*> vBarriers;
 
     //declare a vector array of enemy pointers
     std::vector<Enemy*> enemies;
