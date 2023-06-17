@@ -36,6 +36,14 @@ void Boss::Update(sf::Time frameTime)
 {
 	CheckHealth();
 	CheckDistance(playerPtr);
+	if (velocity.x != 0 || velocity.y != 0)
+	{
+		this->Play("Walk");
+	}
+	else
+	{
+		this->Play("Idle");
+	}
 
 	if (!playerInRange)
 	{
@@ -117,6 +125,7 @@ void Boss::DoAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
+		this->Play("Overhand");
 		playerPtr->ChangeHealth(35);
 		SetHasAttacked(true);
 		cooldownClock.restart();
