@@ -240,6 +240,11 @@ bool Player::CheckAlive()
 	}
 }
 
+PlayerAttackBox Player::GetPlayerAttackBox()
+{
+	return attackBox;
+}
+
 
 void Player::AttackCheck()
 {

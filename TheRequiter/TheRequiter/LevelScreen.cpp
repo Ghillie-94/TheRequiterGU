@@ -57,7 +57,7 @@ void LevelScreen::Update(sf::Time frameTime)
 
 				for (int i = 0; i < enemies.size(); ++i)
 				{
-					if (enemies[i]->CheckCollision(player.))
+					if (enemies[i]->CheckCollision(player))
 					{
 						player.SetColliding(true);
 						enemies[i]->SetColliding(true);
@@ -136,7 +136,7 @@ bool LevelScreen::LoadLevel(std::string fileName)
 
 	//each time try to read the next character
 	//if succesful, execute the body of loop
-	// the no skip ws means out input from the file will inc white space
+	// the no skip ws means that input from the file will inc white space
 
 	while (inFile >> std::noskipws >> ch)
 	{

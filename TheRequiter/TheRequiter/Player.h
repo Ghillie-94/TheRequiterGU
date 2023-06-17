@@ -22,6 +22,7 @@ public:
     void OverhandAttack();
 
     bool CheckAlive();
+    PlayerAttackBox GetPlayerAttackBox();
 
 
     void ChangeHealth(int damage);
