@@ -162,6 +162,7 @@
     <ClCompile Include="TheRequiter.cpp" />
     <ClCompile Include="LevelScreen.cpp" />
     <ClCompile Include="VectorHelper.cpp" />
+    <ClCompile Include="VerticalBarrier.cpp" />
     <ClCompile Include="WallLayer.cpp" />
     <ClCompile Include="WinPanel.cpp" />
   </ItemGroup>
@@ -186,6 +187,7 @@
     <ClInclude Include="Slim.h" />
     <ClInclude Include="SpriteObject.h" />
     <ClInclude Include="VectorHelper.h" />
+    <ClInclude Include="VerticalBarrier.h" />
     <ClInclude Include="WallLayer.h" />
     <ClInclude Include="WinPanel.h" />
   </ItemGroup>

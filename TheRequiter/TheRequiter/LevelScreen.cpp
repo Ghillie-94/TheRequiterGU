@@ -182,8 +182,9 @@ bool LevelScreen::LoadLevel(std::string fileName)
 		}
 		else if (ch == 'W')
 		{
-			barriers.push_back(new Barrier(sf::Vector2f(x, y)));
+			
 		}
+
 		else if (ch == 'S')
 		{
 			enemies.push_back(new Slim(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));
@@ -208,6 +209,9 @@ bool LevelScreen::LoadLevel(std::string fileName)
 
 	//close the file now that we are done with it 
 	inFile.close();
+	//load barriers seperately as they overlap with wall layer
+	barriers.push_back(new Barrier(sf::Vector2f(0, 800))), new Barrier(sf::Vector2f(0,1080));
+	
 
 	gameRunning = true;
 
