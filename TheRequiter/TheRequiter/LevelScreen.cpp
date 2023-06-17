@@ -2,6 +2,7 @@
 #include "AssetManager.h"
 #include "Boss.h"
 #include "Slim.h"
+#include "Parallax.h"
 
 #include <fstream>
 #include <iostream>
@@ -39,6 +40,8 @@ void LevelScreen::Update(sf::Time frameTime)
 				}
 		
 				player.SetColliding(false);
+				player.SetCanAttack(false);
+				
 				
 				for (int i = 0; i < enemies.size(); ++i)
 				{
@@ -57,12 +60,11 @@ void LevelScreen::Update(sf::Time frameTime)
 
 				for (int i = 0; i < enemies.size(); ++i)
 				{
-					if (enemies[i]->CheckCollision(player))
+					if (enemies[i]->CheckCollision(player.GetPlayerAttackBox()))
 					{
-						player.SetColliding(true);
+						player.SetCanAttack(true);
 						enemies[i]->SetColliding(true);
-						player.HandleCollision(*enemies[i]);
-						enemies[i]->HandleCollision(player);
+						player.GetPlayerAttackBox().SetColliding(true);
 					}
 
 					
@@ -73,6 +75,11 @@ void LevelScreen::Update(sf::Time frameTime)
 			else 
 			{
 				TriggerLose(true);
+				losePanel.Update(frameTime);
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+				{
+					Restart();
+				}
 			}
 		}
 	}
