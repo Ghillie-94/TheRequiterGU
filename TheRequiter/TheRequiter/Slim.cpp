@@ -23,12 +23,21 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
 	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
 	velocity = vectorToNewTarget * SPEED;
+	LoadAnimation();
 }
 
 void Slim::Update(sf::Time frameTime)
 {
 	CheckHealth();
 	CheckDistance(playerPtr);
+	if (velocity.x != 0 || velocity.y != 0)
+	{
+		this->Play("Walk");
+	}
+	else
+	{
+		this->Play("Stand");
+	}
 
 	if (!playerInRange) 
 	{
@@ -109,6 +118,7 @@ void Slim::DoAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
+		this->Play("Jab");
 		playerPtr->ChangeHealth(15);
 		SetHasAttacked(true);
 		cooldownClock.restart();
