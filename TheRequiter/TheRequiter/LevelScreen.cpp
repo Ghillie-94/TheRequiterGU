@@ -70,7 +70,11 @@ void LevelScreen::Update(sf::Time frameTime)
 							player.GetPlayerAttackBox().SetColliding(true);
 						}
 
-						
+						if (enemies[i]->GetEnemyAttackBox().CheckCollision(player))
+						{
+							enemies[i]->AttackCheck(true);
+							player.SetColliding(true);
+						}
 
 
 					}
