@@ -191,7 +191,7 @@ void Player::JabAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
-
+		this->Play("Jab");
 		enemyPtr->ChangeHealth(20);
 		SetHasAttacked(true);
 		cooldownClock.restart();
@@ -220,6 +220,7 @@ void Player::OverhandAttack()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
 		{
+			this->Play("Overhand");
 			enemyPtr->ChangeHealth(40);
 			SetHasAttacked(true);
 			cooldownClock.restart();
@@ -279,25 +280,28 @@ void Player::UpdateAcceleration()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		acceleration.x = -ACCEL;
-		
+		this->Play("Walk");
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		acceleration.x = ACCEL;
+		this->Play("Walk");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		acceleration.x = -ACCEL;
+		this->Play("Walk");
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		acceleration.x = ACCEL;
+		this->Play("Walk");
 	}
 	else 
 	{
-		
+		this->Play("Idle");
 	}
 
 }
@@ -361,9 +365,8 @@ void Player::LoadAnimation()
 
 	sf::Texture playerStandTex;
 	playerStandTex.loadFromFile("Assets/Frank/Idle");
-	sf::Sprite playerSprite;
-	//playerSprite.setTexture(playerStandTex);
 	sprite.setTexture(playerStandTex);
+
 	//animation setup
 	Animation playerAnimation(&sprite, "Assets/Frank", 12.0f);
 	playerAnimation.AddClip("Idle", 2, true);
