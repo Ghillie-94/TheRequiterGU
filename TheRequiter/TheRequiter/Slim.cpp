@@ -117,9 +117,9 @@ void Slim::DoAttack()
 	}
 }
 
-void Slim::AttackCheck()
+void Slim::AttackCheck(bool newCanAttack)
 {
-	SetCanAttack(true);
+	canAttack = newCanAttack;
 }
 
 void Slim::CheckDistance(Player* newPlayerPtr)
@@ -155,14 +155,70 @@ void Slim::CheckDistance(Player* newPlayerPtr)
 	}
 }
 
-void Slim::SetCanAttack(bool newCanAttack)
-{
-	canAttack = newCanAttack;
-}
+
 
 void Slim::SetHasAttacked(bool newHasAttacked)
 {
 	hasAttacked = newHasAttacked;
+}
+
+void Slim::LoadAnimation()
+{
+	//LOAD ANIMATIONS
+	//load stand animation
+	std::vector<sf::Texture> stand;
+	int numOfFrames = 2;
+	std::string baseFilePath = "Assets/Slim/Idle";
+	std::string fileType = "png";
+
+	//create loop to populate vector
+	for (int i = 0; i < numOfFrames; ++i)
+	{
+		stand.push_back(sf::Texture());
+	}
+
+	//load walk animation
+	std::vector<sf::Texture> walk;
+	numOfFrames = 4;
+	baseFilePath = "Assets/Slim/Walk";
+
+	//create loop to populate vector
+	for (int i = 0; i < numOfFrames; ++i)
+	{
+		walk.push_back(sf::Texture());
+	}
+
+	//load jab animation
+	std::vector<sf::Texture> jab;
+	numOfFrames = 3;
+	baseFilePath = "Assets/Slim/Jab";
+
+	//create loop to populate vector
+	for (int i = 0; i < numOfFrames; ++i)
+	{
+		jab.push_back(sf::Texture());
+	}
+
+
+	// current animation clip
+	std::vector<sf::Texture>* currentAni = &stand;
+
+	//animation variables
+	float framesPerSecond = 12.0f;
+	sf::Time timePerFrame = sf::seconds(1.0f / framesPerSecond);
+	sf::Clock aniClock;
+	int currentFrame = 0;
+
+	sf::Texture slimStandTex;
+	slimStandTex.loadFromFile("Assets/Slim/Idle");
+	sprite.setTexture(slimStandTex);
+
+	//animation setup
+	Animation slimAnimation(&sprite, "Assets/Slim", 12.0f);
+	slimAnimation.AddClip("Idle", 2, true);
+	slimAnimation.AddClip("Walk", 4, true);
+	slimAnimation.AddClip("Jab", 3, false);
+	
 }
 
 

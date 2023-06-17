@@ -17,16 +17,18 @@ public:
     void ChangeHealth(int damage) override;
     void AttackTimer() override;
     void DoAttack() override;
-    void AttackCheck() override;
+    void AttackCheck(bool newCanAttack) override;
     void CheckDistance(Player* newPlayerPtr);
 
-    void SetCanAttack(bool newCanAttack);
+    
     void SetHasAttacked(bool newHasAttacked);
     
 
     
 
 private:
+
+    void LoadAnimation();
 
     int health;
     bool canAttack;
