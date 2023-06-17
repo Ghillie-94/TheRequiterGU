@@ -3,6 +3,7 @@
 #include "Boss.h"
 #include "Slim.h"
 #include "Parallax.h"
+#include "Enemy.h"
 
 #include <fstream>
 #include <iostream>
