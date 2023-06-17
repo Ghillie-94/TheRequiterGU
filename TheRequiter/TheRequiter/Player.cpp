@@ -359,7 +359,17 @@ void Player::LoadAnimation()
 	sf::Clock aniClock;
 	int currentFrame = 0;
 
+	sf::Texture playerStandTex;
+	playerStandTex.loadFromFile("Assets/Frank/Idle");
+	sf::Sprite playerSprite;
+	//playerSprite.setTexture(playerStandTex);
+	sprite.setTexture(playerStandTex);
 	//animation setup
-	Animation playerAnimation;
+	Animation playerAnimation(&sprite, "Assets/Frank", 12.0f);
+	playerAnimation.AddClip("Idle", 2, true);
+	playerAnimation.AddClip("Walk", 4, true);
+	playerAnimation.AddClip("Jab", 3, false);
+	playerAnimation.AddClip("Overhand", 3, false);
+
 
 }
