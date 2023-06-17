@@ -32,55 +32,67 @@ void LevelScreen::Update(sf::Time frameTime)
 	{
 		if (!isTitleScreen)
 		{
-			if (player.CheckAlive() == true)
+			if (isBossAlive)
 			{
-				for (int i = 0; i < enemies.size(); ++i)
+				if (player.CheckAlive() == true)
 				{
-					enemies[i]->Update();
-				}
-		
-				player.SetColliding(false);
-				player.SetCanAttack(false);
-				
-				
-				for (int i = 0; i < enemies.size(); ++i)
-				{
-					enemies[i]->SetColliding(false);
-				}
-
-				for (int i = 0; i < barriers.size(); ++i)
-				{
-					barriers[i]->SetColliding(false);
-				}
-				
-				for (int i = 0; i < parallaxLayers.size(); ++i)
-				{
-					parallaxLayers[i]->SetColliding(false);
-				}
-
-				for (int i = 0; i < enemies.size(); ++i)
-				{
-					if (enemies[i]->CheckCollision(player.GetPlayerAttackBox()))
+					for (int i = 0; i < enemies.size(); ++i)
 					{
-						player.SetCanAttack(true);
-						enemies[i]->SetColliding(true);
-						player.GetPlayerAttackBox().SetColliding(true);
+						enemies[i]->Update();
 					}
 
-					
+					player.SetColliding(false);
+					player.SetCanAttack(false);
+
+
+					for (int i = 0; i < enemies.size(); ++i)
+					{
+						enemies[i]->SetColliding(false);
+					}
+
+					for (int i = 0; i < barriers.size(); ++i)
+					{
+						barriers[i]->SetColliding(false);
+					}
+
+					for (int i = 0; i < parallaxLayers.size(); ++i)
+					{
+						parallaxLayers[i]->SetColliding(false);
+					}
+
+					for (int i = 0; i < enemies.size(); ++i)
+					{
+						if (enemies[i]->CheckCollision(player.GetPlayerAttackBox()))
+						{
+							player.SetCanAttack(true);
+							enemies[i]->SetColliding(true);
+							player.GetPlayerAttackBox().SetColliding(true);
+						}
+
+
+					}
+
+
 				}
-
-
+				else
+				{
+					TriggerLose(true);
+					losePanel.Update(frameTime);
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+					{
+						Restart();
+					}
+				}
 			}
-			else 
+			else
 			{
-				TriggerLose(true);
-				losePanel.Update(frameTime);
+				winPanel.Update(frameTime);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
 				{
 					Restart();
 				}
 			}
+			
 		}
 	}
 }
