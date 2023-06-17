@@ -10,6 +10,6 @@ public:
 
 private:
     
-    Player* playerPtr
+    Player* playerPtr;
 };
 
