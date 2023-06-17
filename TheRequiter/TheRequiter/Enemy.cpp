@@ -45,3 +45,10 @@ void Enemy::AttackCheck(bool newCanAttack)
 {
 	//handled in child class
 }
+
+EnemyAttackBox Enemy::GetEnemyAttackBox()
+{
+	//handled in child
+}
+
+

@@ -22,6 +22,8 @@ public:
 
     
     void SetHasAttacked(bool newHasAttacked);
+
+    EnemyAttackBox GetEnemyAttackBox() override;
     
 
     
@@ -43,5 +45,6 @@ private:
     Player* playerPtr;
     sf::Clock cooldownClock;
     sf::Time cooldownTimer;
+    EnemyAttackBox attackBox;
 };
 

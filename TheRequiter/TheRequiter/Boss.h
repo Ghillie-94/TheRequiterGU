@@ -24,6 +24,8 @@ public:
     
     void SetHasAttacked(bool newHasAttacked);
 
+    EnemyAttackBox GetEnemyAttackBox() override;
+
 
     
 

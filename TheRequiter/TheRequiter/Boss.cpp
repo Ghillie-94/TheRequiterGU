@@ -180,6 +180,11 @@ void Boss::SetHasAttacked(bool newHasAttacked)
 	hasAttacked = newHasAttacked;
 }
 
+EnemyAttackBox Boss::GetEnemyAttackBox()
+{
+	return bossAttackBox;
+}
+
 void Boss::LoadAnimation()
 {
 	//LOAD ANIMATIONS
