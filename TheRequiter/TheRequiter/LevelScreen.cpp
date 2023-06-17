@@ -180,6 +180,10 @@ bool LevelScreen::LoadLevel(std::string fileName)
 		{
 			player.SetPosition(x, y);
 		}
+		else if (ch == 'W')
+		{
+			barriers.push_back(new Barrier(sf::Vector2f(x, y)));
+		}
 		else if (ch == 'S')
 		{
 			enemies.push_back(new Slim(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));

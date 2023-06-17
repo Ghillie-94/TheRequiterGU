@@ -3,5 +3,9 @@
 class Barrier :
     public SpriteObject
 {
+public:
+    Barrier(sf::Vector2f newPosition);
+
+    
 };
 

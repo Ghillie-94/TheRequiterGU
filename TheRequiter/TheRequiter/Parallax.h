@@ -4,6 +4,7 @@ class Parallax :
     public SpriteObject
 {
 public:
+    Parallax(sf::Vector2f newPosition);
     Parallax();
 };
 
