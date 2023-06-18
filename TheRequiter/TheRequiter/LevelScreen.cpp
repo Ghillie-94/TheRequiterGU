@@ -61,6 +61,24 @@ void LevelScreen::Update(sf::Time frameTime)
 					{
 						parallaxLayers[i]->SetColliding(false);
 					}
+					
+					for (int i = 0; i < barriers.size(); ++i)
+					{
+						if (barriers[i]->CheckCollision(player))
+						{
+							player.SetColliding(true);
+							player.HandleCollision(*barriers[i]);
+						}
+					}
+
+					for (int i = 0; i < vBarriers.size(); ++i)
+					{
+						if (vBarriers[i]->CheckCollision(player))
+						{
+							player.SetColliding(true);
+							player.HandleCollision(*vBarriers[i]);
+						}
+					}
 
 					for (int i = 0; i < enemies.size(); ++i)
 					{
