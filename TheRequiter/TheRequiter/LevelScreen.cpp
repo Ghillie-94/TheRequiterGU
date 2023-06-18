@@ -4,6 +4,10 @@
 #include "Slim.h"
 #include "Parallax.h"
 #include "Enemy.h"
+#include "WallLayer.h"
+#include "PalmTreeFar.h"
+#include "PalmTreeClose.h"
+#include "PierFerrisLayer.h"
 
 #include <fstream>
 #include <iostream>
@@ -38,6 +42,10 @@ void LevelScreen::Update(sf::Time frameTime)
 			{
 				if (player.CheckAlive() == true)
 				{
+
+					player.Update(frameTime);
+					
+
 					for (int i = 0; i < enemies.size(); ++i)
 					{
 						enemies[i]->Update();
@@ -201,9 +209,20 @@ bool LevelScreen::LoadLevel(std::string fileName)
 		}
 		else if (ch == 'W')
 		{
-			
+			parallaxLayers.push_back(new WallLayer(sf::Vector2f(x, y), &player));
 		}
-
+		else if (ch == 'F')
+		{
+			parallaxLayers.push_back(new PalmTreeFar(sf::Vector2f(x, y), &player));
+		}
+		else if (ch == 'C')
+		{
+			parallaxLayers.push_back(new PalmTreeClose(sf::Vector2f(x, y), &player));
+		}
+		else if (ch == 'L')
+		{
+			parallaxLayers.push_back(new PierFerrisLayer(sf::Vector2f(x, y), &player));
+		}
 		else if (ch == 'S')
 		{
 			enemies.push_back(new Slim(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));
