@@ -45,6 +45,7 @@ void Boss::Update(sf::Time frameTime)
 	{
 		this->Play("Idle");
 	}
+	
 
 	if (!playerInRange)
 	{
@@ -81,6 +82,10 @@ void Boss::Update(sf::Time frameTime)
 	else
 	{
 		//TODO move towards player
+		if (canAttack)
+		{
+			DoAttack();
+		}
 	}
 }
 
