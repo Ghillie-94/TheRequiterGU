@@ -68,6 +68,7 @@ void LevelScreen::Update(sf::Time frameTime)
 					for (int i = 0; i < parallaxLayers.size(); ++i)
 					{
 						parallaxLayers[i]->SetColliding(false);
+						parallaxLayers[i]->Update(frameTime);
 					}
 					
 					for (int i = 0; i < barriers.size(); ++i)
