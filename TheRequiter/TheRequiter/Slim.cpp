@@ -188,7 +188,7 @@ void Slim::LoadAnimation()
 	//load stand animation
 	std::vector<sf::Texture> stand;
 	int numOfFrames = 2;
-	std::string baseFilePath = "Assets/Slim/Idle";
+	std::string baseFilePath = "Assets/Graphics/Slim/Idle";
 	std::string fileType = "png";
 
 	//create loop to populate vector
@@ -200,7 +200,7 @@ void Slim::LoadAnimation()
 	//load walk animation
 	std::vector<sf::Texture> walk;
 	numOfFrames = 4;
-	baseFilePath = "Assets/Slim/Walk";
+	baseFilePath = "Assets/Graphics/Slim/Walk";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -211,7 +211,7 @@ void Slim::LoadAnimation()
 	//load jab animation
 	std::vector<sf::Texture> jab;
 	numOfFrames = 3;
-	baseFilePath = "Assets/Slim/Jab";
+	baseFilePath = "Assets/Graphics/Slim/Jab";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -230,11 +230,11 @@ void Slim::LoadAnimation()
 	int currentFrame = 0;
 
 	sf::Texture slimStandTex;
-	slimStandTex.loadFromFile("Assets/Slim/Idle");
+	slimStandTex.loadFromFile("Assets/Graphics/Slim/Idle");
 	sprite.setTexture(slimStandTex);
 
 	//animation setup
-	Animation slimAnimation(&sprite, "Assets/Slim", 12.0f);
+	Animation slimAnimation(&sprite, "Assets/Graphics/Slim", 12.0f);
 	slimAnimation.AddClip("Idle", 2, true);
 	slimAnimation.AddClip("Walk", 4, true);
 	slimAnimation.AddClip("Jab", 3, false);

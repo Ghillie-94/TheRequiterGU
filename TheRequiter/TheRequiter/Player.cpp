@@ -312,7 +312,7 @@ void Player::LoadAnimation()
 	//load stand animation
 	std::vector<sf::Texture> stand;
 	int numOfFrames = 2;
-	std::string baseFilePath = "Assets/Frank/Idle";
+	std::string baseFilePath = "Assets/Graphics/Frank/Idle";
 	std::string fileType = "png";
 
 	//create loop to populate vector
@@ -324,7 +324,7 @@ void Player::LoadAnimation()
 	//load walk animation
 	std::vector<sf::Texture> walk;
 	numOfFrames = 4;
-	baseFilePath = "Assets/Frank/Walk";
+	baseFilePath = "Assets/Graphics/Frank/Walk";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -335,7 +335,7 @@ void Player::LoadAnimation()
 	//load jab animation
 	std::vector<sf::Texture> jab;
 	numOfFrames = 3;
-	baseFilePath = "Assets/Frank/Jab";
+	baseFilePath = "Assets/Graphics/Frank/Jab";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -346,7 +346,7 @@ void Player::LoadAnimation()
 	//load overhand animation
 	std::vector<sf::Texture> overhand;
 	numOfFrames = 3;
-	baseFilePath = "Assets/Frank/Overhand";
+	baseFilePath = "Assets/Graphics/Frank/Overhand";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -364,11 +364,11 @@ void Player::LoadAnimation()
 	int currentFrame = 0;
 
 	sf::Texture playerStandTex;
-	playerStandTex.loadFromFile("Assets/Frank/Idle");
+	playerStandTex.loadFromFile("Assets/Graphics/Frank/Idle");
 	sprite.setTexture(playerStandTex);
 
 	//animation setup
-	Animation playerAnimation(&sprite, "Assets/Frank", 12.0f);
+	Animation playerAnimation(&sprite, "Assets/Graphics/Frank", 12.0f);
 	playerAnimation.AddClip("Idle", 2, true);
 	playerAnimation.AddClip("Walk", 4, true);
 	playerAnimation.AddClip("Jab", 3, false);

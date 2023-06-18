@@ -196,7 +196,7 @@ void Boss::LoadAnimation()
 	//load stand animation
 	std::vector<sf::Texture> stand;
 	int numOfFrames = 1;
-	std::string baseFilePath = "Assets/Boss/Idle";
+	std::string baseFilePath = "Assets/Graphics/Boss/Idle";
 	std::string fileType = "png";
 
 	//create loop to populate vector
@@ -208,7 +208,7 @@ void Boss::LoadAnimation()
 	//load walk animation
 	std::vector<sf::Texture> walk;
 	numOfFrames = 4;
-	baseFilePath = "Assets/Boss/Walk";
+	baseFilePath = "Assets/Graphics/Boss/Walk";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -220,7 +220,7 @@ void Boss::LoadAnimation()
 	//load overhand animation
 	std::vector<sf::Texture> overhand;
 	numOfFrames = 3;
-	baseFilePath = "Assets/Boss/Overhand";
+	baseFilePath = "Assets/Graphics/Boss/Overhand";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -238,11 +238,11 @@ void Boss::LoadAnimation()
 	int currentFrame = 0;
 
 	sf::Texture bossStandTex;
-	bossStandTex.loadFromFile("Assets/Boss/Idle");
+	bossStandTex.loadFromFile("Assets/Graphics/Boss/Idle");
 	sprite.setTexture(bossStandTex);
 
 	//animation setup
-	Animation bossAnimation(&sprite, "Assets/Boss", 12.0f);
+	Animation bossAnimation(&sprite, "Assets/Graphics/Boss", 12.0f);
 	bossAnimation.AddClip("Idle", 1, true);
 	bossAnimation.AddClip("Walk", 4, true);
 	bossAnimation.AddClip("Overhand", 3, false);
