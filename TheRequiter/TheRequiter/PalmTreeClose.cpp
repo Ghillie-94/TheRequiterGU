@@ -6,7 +6,7 @@ PalmTreeClose::PalmTreeClose(sf::Vector2f newPosition, Player* newPlayerPtr)
 	, playerVelocity(0)
 	, SCROLLSPEED(70)
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Parallax/PierFerrisLayer.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Parallax/PalmTreeClose.png"));
 	SetPosition(newPosition);
 }
 
