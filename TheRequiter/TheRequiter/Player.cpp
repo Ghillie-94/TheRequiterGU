@@ -23,7 +23,7 @@ Player::Player(Enemy* newEnemyPtr)
 	, enemyPtr(newEnemyPtr)
 	
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle/Idle1.png"));
 	collisionOffset = sf::Vector2f(0, 30);
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
@@ -364,7 +364,7 @@ void Player::LoadAnimation()
 	int currentFrame = 0;
 
 	sf::Texture playerStandTex;
-	playerStandTex.loadFromFile("Assets/Graphics/Frank/Idle");
+	playerStandTex.loadFromFile("Assets/Graphics/Frank/Idle/FrankIdle1.png");
 	sprite.setTexture(playerStandTex);
 
 	//animation setup

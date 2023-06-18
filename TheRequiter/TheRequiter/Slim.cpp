@@ -187,7 +187,7 @@ void Slim::LoadAnimation()
 	//LOAD ANIMATIONS
 	//load stand animation
 	std::vector<sf::Texture> stand;
-	int numOfFrames = 2;
+	int numOfFrames = 1;
 	std::string baseFilePath = "Assets/Graphics/Slim/Idle";
 	std::string fileType = "png";
 
