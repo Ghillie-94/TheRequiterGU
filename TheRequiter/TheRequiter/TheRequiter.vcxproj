@@ -143,6 +143,7 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AssetManager.cpp" />
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="Barrier.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="Easing.cpp" />
@@ -169,6 +170,7 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AssetManager.h" />
+    <ClInclude Include="Background.h" />
     <ClInclude Include="Barrier.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="Easing.h" />

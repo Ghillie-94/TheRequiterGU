@@ -134,6 +134,7 @@ void LevelScreen::Update(sf::Time frameTime)
 
 void LevelScreen::Draw(sf::RenderTarget& target)
 {
+
 }
 
 void LevelScreen::TriggerWin(bool win)
