@@ -8,8 +8,12 @@ public:
 
     WallLayer(sf::Vector2f newPosition, Player* newPlayerPtr);
 
+    void Update(sf::Time frameTime) override;
+
 private:
     
     Player* playerPtr;
+    float playerVelocity;
+    const float SCROLLSPEED;
 };
 
