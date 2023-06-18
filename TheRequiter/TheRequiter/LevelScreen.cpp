@@ -224,7 +224,7 @@ bool LevelScreen::LoadLevel(std::string fileName)
 
 	//define the spacing we will use for our grid
 	const float X_SPACE = 150.0f;
-	const float Y_SPACE = 150.0f;
+	const float Y_SPACE = 180.0f;
 
 	//read each character one by one from the file...
 	char ch;
