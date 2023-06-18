@@ -63,5 +63,7 @@ private:
 
     int currentLevel;
 
+    sf::Music soundtrack;
+
 };
 

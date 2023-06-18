@@ -9,6 +9,7 @@
 #include "PalmTreeClose.h"
 #include "PierFerrisLayer.h"
 #include "Background.h"
+#include "SFML/Audio.hpp"
 
 #include <fstream>
 #include <iostream>
@@ -28,10 +29,15 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, barriers()
 	, vBarriers()
 	, enemies()
+	, soundtrack()
 	
 
 {
 	Restart();
+	soundtrack.openFromFile("Assets/Audio/Soundtrack.mp3");
+	soundtrack.setVolume(75);
+	soundtrack.setLoop(true);
+	soundtrack.play();
 }
 
 void LevelScreen::Update(sf::Time frameTime)
@@ -201,6 +207,7 @@ void LevelScreen::TriggerLose(bool lose)
 
 void LevelScreen::Restart()
 {
+	isTitleScreen = true;
 	LoadLevel(currentLevel);
 }
 
