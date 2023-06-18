@@ -131,6 +131,13 @@ void LevelScreen::Update(sf::Time frameTime)
 			}
 			
 		}
+		else
+		{
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
+			{
+				isTitleScreen = false;
+			}
+		}
 	}
 }
 
