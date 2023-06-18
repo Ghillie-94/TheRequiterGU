@@ -7,7 +7,7 @@ WallLayer::WallLayer(sf::Vector2f newPosition, Player* newPlayerPtr)
 	, playerVelocity(0)
 	, SCROLLSPEED(100)
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Parallax/Wall.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Parallax/Wall.png"));
 	SetPosition(newPosition);
 }
 
