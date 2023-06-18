@@ -150,15 +150,18 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 		camera.setCenter(cameraCentre);
 
 		// draw "world" objects (ones that should use the camera
-		for (int i = 0; i < enemies.size(); ++i)
-		{
-			enemies[i]->Draw(target);
-		}
 		for (int i = 0; i < parallaxLayers.size(); ++i)
 		{
 			parallaxLayers[i]->Draw(target);
 		}
+
 		player.Draw(target);
+
+		for (int i = 0; i < enemies.size(); ++i)
+		{
+			enemies[i]->Draw(target);
+		}
+		
 
 	}
 
@@ -224,7 +227,7 @@ bool LevelScreen::LoadLevel(std::string fileName)
 
 	//define the spacing we will use for our grid
 	const float X_SPACE = 150.0f;
-	const float Y_SPACE = 180.0f;
+	const float Y_SPACE = 120.0f;
 
 	//read each character one by one from the file...
 	char ch;
