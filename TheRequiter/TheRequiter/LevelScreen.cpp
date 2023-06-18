@@ -8,6 +8,7 @@
 #include "PalmTreeFar.h"
 #include "PalmTreeClose.h"
 #include "PierFerrisLayer.h"
+#include "Background.h"
 
 #include <fstream>
 #include <iostream>
@@ -21,6 +22,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, player(nullptr)
 	, winPanel(newGamePointer->GetWindow())
 	, losePanel(newGamePointer->GetWindow())
+	, background()
 	, parallaxLayers()
 	, currentLevel(1)
 	, barriers()
@@ -134,7 +136,8 @@ void LevelScreen::Update(sf::Time frameTime)
 
 void LevelScreen::Draw(sf::RenderTarget& target)
 {
-
+	//draw background
+	background.Draw(target);
 }
 
 void LevelScreen::TriggerWin(bool win)

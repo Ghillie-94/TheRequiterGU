@@ -7,6 +7,7 @@
 #include "LosePanel.h"
 #include "Game.h"
 #include "AssetManager.h"
+#include "Background.h"
 
 
 #include <SFML/Graphics.hpp>
@@ -45,6 +46,7 @@ private:
     Player player;
     WinPanel winPanel;
     LosePanel losePanel;
+    Background background;
 
     //declare a vector array of parallax pointers
     std::vector<Parallax*> parallaxLayers;
