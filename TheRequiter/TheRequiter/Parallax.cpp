@@ -14,3 +14,5 @@ void Parallax::Update(sf::Time frameTime)
 {
 	//handled in child class
 }
+
+

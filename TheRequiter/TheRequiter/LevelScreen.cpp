@@ -138,6 +138,43 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 {
 	//draw background
 	background.Draw(target);
+	//Todo add text that says play
+	//TODO add 3d title text
+
+	if (!isTitleScreen)
+	{
+		//update the camera based on the render target size and player position
+		camera = target.getDefaultView();
+		sf::Vector2f cameraCentre = camera.getCenter();
+		cameraCentre.y = player.GetPosition().y - 25;
+		camera.setCenter(cameraCentre);
+
+		// draw "world" objects (ones that should use the camera
+		for (int i = 0; i < enemies.size(); ++i)
+		{
+			enemies[i]->Draw(target);
+		}
+		for (int i = 0; i < parallaxLayers.size(); ++i)
+		{
+			parallaxLayers[i]->Draw(target);
+		}
+		player.Draw(target);
+
+	}
+
+	//for any UI, reset the camera to the default view
+	//before drawing
+	target.setView(target.getDefaultView());
+
+	if (!isBossAlive)
+	{
+		winPanel.Draw(target);
+	}
+
+	if (!isPlayerAlive)
+	{
+		losePanel.Draw(target);
+	}
 }
 
 void LevelScreen::TriggerWin(bool win)
