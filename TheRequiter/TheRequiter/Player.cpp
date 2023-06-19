@@ -13,7 +13,7 @@ enum class PhysicsType
 };
 
 Player::Player(Enemy* newEnemyPtr)
-	: Animation("Assets/Graphics/Frank", 12, "png")
+	: Animation("Assets/Graphics/Frank/", 12, "png")
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
@@ -50,7 +50,7 @@ void Player::Update(sf::Time frameTime)
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 
 	//call animation update for player
-	//Animation::Update(frameTime);
+	Animation::Update(frameTime);
 	//Attack input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
 	{

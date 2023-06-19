@@ -317,8 +317,8 @@ bool LevelScreen::LoadLevel(std::string fileName)
 	//close the file now that we are done with it 
 	inFile.close();
 	//load barriers seperately as they overlap with wall layer
-	barriers.push_back(new Barrier(sf::Vector2f(0, 350))), new Barrier(sf::Vector2f(0,1080));
-	vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 0))), new VerticalBarrier(sf::Vector2f(9600, 0));
+	//barriers.push_back(new Barrier(sf::Vector2f(0, 350))), new Barrier(sf::Vector2f(0,1080));
+	//vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 0))), new VerticalBarrier(sf::Vector2f(9600, 0));
 
 	gameRunning = true;
 
