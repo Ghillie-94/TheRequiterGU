@@ -66,6 +66,7 @@ private:
     int currentLevel;
 
     sf::Music soundtrack;
+    sf::Text playText;
 
 };
 

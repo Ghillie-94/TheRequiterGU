@@ -31,6 +31,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, vBarriers()
 	, enemies()
 	, soundtrack()
+	, playText()
 	
 
 {
@@ -39,6 +40,12 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	soundtrack.setVolume(75);
 	soundtrack.setLoop(true);
 	soundtrack.play();
+
+	playText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
+	playText.setCharacterSize(30);
+	playText.setString("Play");
+	playText.setFillColor(sf::Color::Magenta);
+	playText.setOutlineColor(sf::Color::Cyan);
 }
 
 void LevelScreen::Update(sf::Time frameTime)
@@ -173,6 +180,12 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 		}
 		
 
+	}
+	else
+	{
+		
+		playText.setPosition(960, 540);
+		target.draw(playText);
 	}
 
 	//for any UI, reset the camera to the default view
