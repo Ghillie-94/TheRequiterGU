@@ -10,6 +10,7 @@ SpriteObject::SpriteObject()
 	, collisionScale(1,1)
 	, collisionType(CollisionType::AABB)
 	, alive(true)
+	, drawCollider(true)
 {
 }
 
@@ -24,7 +25,7 @@ void SpriteObject::Draw(sf::RenderTarget& target)
 		return;
 	target.draw(sprite);
 
-	bool drawCollider = true;
+	//bool drawCollider = true;
 
 	if (drawCollider) 
 	{
@@ -197,6 +198,11 @@ void SpriteObject::HandleCollision(SpriteObject& other)
 void SpriteObject::SetAlive(bool newAlive)
 {
 	alive = newAlive;
+}
+
+void SpriteObject::SetColliderDraw(bool newDrawCollider)
+{
+	drawCollider = newDrawCollider;
 }
 
 sf::Vector2f SpriteObject::GetCollisionCentre()
