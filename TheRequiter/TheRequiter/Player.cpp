@@ -13,7 +13,7 @@ enum class PhysicsType
 };
 
 Player::Player(Enemy* newEnemyPtr)
-	: Animation("Assets/Graphics/Frank/", 12, "png")
+	: Animation("Assets/Graphics/Frank/", 6, "png")
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
@@ -45,7 +45,7 @@ Player::Player(Enemy* newEnemyPtr)
 
 void Player::Update(sf::Time frameTime)
 {
-
+	
 	const float DRAG_MULT = 5.0f;
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 
@@ -225,15 +225,23 @@ void Player::AttackCooldown()
 
 void Player::OverhandAttack()
 {
-	if (canAttack && !hasAttacked)
+	if (!hasAttacked)
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
 		{
 			Play("Overhand");
-			enemyPtr->ChangeHealth(40);
-			SetHasAttacked(true);
-			cooldownClock.restart();
-			AttackCooldown();
+			if (canAttack)
+			{
+				enemyPtr->ChangeHealth(40);
+				SetHasAttacked(true);
+				cooldownClock.restart();
+				AttackCooldown();
+			}
+			else
+			{
+				AttackCooldown();
+			}
+			
 		}
 	}
 }
@@ -289,26 +297,30 @@ void Player::UpdateAcceleration()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		acceleration.x = -ACCEL;
-		Play("Walk");
+		//Play("Walk");
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		acceleration.x = ACCEL;
-		Play("Walk");
+		//Play("Walk");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		acceleration.y = -ACCEL;
-		Play("Walk");
+		//Play("Walk");
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		acceleration.y = ACCEL;
+		//Play("Walk");
+	}
+	if (velocity.x != 0 || velocity.y != 0)
+	{
 		Play("Walk");
 	}
-	else 
+	else if (velocity.x == 0 && velocity.y == 0)
 	{
 		Play("Idle");
 	}
@@ -380,7 +392,7 @@ void Player::LoadAnimation()
 	
 	
 	AddClip("Idle", 2, true);
-	AddClip("Walk", 4, true);
+	AddClip("Walk", 4, false);
 	AddClip("Jab", 3, false);
 	AddClip("Overhand", 3, false);
 

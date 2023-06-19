@@ -163,8 +163,11 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 		//update the camera based on the render target size and player position
 		camera = target.getDefaultView();
 		sf::Vector2f cameraCentre = camera.getCenter();
-		cameraCentre.y = player.GetPosition().y - 25;
+		cameraCentre.x = player.GetPosition().x - 25;
 		camera.setCenter(cameraCentre);
+
+		//update the render target to use the camera
+		target.setView(camera);
 
 		// draw "world" objects (ones that should use the camera
 		for (int i = 0; i < parallaxLayers.size(); ++i)
