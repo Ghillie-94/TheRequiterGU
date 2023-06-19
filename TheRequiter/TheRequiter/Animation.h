@@ -8,24 +8,24 @@ class Animation :
 
     struct Clip
     {
-        std::vector<sf::Texture> textures;
+        std::vector<sf::Texture*> textures;
         bool shouldLoop;
 
     };
 
 public:
-    Animation(sf::Sprite* newAnimatedSprite, std::string newBaseFilePath, float framesPerSecond, std::string newFileType = "png");
-    Animation();
+    
+    Animation(std::string newBaseFilePath, float framesPerSecond, std::string newFileType);
     void AddClip(std::string clipName, int numFrames, bool shouldLoop = false);
     void Play();
     void Play(std::string clipToPlay);
     void Stop();
     void Pause();
 
-    void Update();
+    virtual void Update(sf::Time frameTime) override;
 
 private:
-    sf::Sprite* animatedSprite;
+ 
     std::string baseFilePath;
     std::string fileType;
     Clip* currentClip;

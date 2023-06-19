@@ -232,10 +232,10 @@ void Slim::LoadAnimation()
 	sprite.setTexture(slimStandTex);
 
 	//animation setup
-	Animation slimAnimation(&sprite, "Assets/Graphics/Slim", 12.0f);
-	slimAnimation.AddClip("Idle", 2, true);
-	slimAnimation.AddClip("Walk", 4, true);
-	slimAnimation.AddClip("Jab", 3, false);
+	
+	AddClip("Idle", 2, true);
+	AddClip("Walk", 4, true);
+	AddClip("Jab", 3, false);
 	
 }
 

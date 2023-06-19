@@ -13,7 +13,7 @@ enum class PhysicsType
 };
 
 Player::Player(Enemy* newEnemyPtr)
-	: Animation()
+	: Animation("Assets/Graphics/Frank", 12, "png")
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
@@ -25,9 +25,10 @@ Player::Player(Enemy* newEnemyPtr)
 	, enemyPtr(newEnemyPtr)
 	
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle/Idle1.png"));
-	collisionOffset = sf::Vector2f(0, 30);
-	collisionScale = sf::Vector2f(0.5f, 0.5f);
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
+	sprite.scale(.5, .5);
+	
+	
 	collisionType = CollisionType::AABB;
 	
 	attackArea.height = 150;
@@ -44,9 +45,11 @@ Player::Player(Enemy* newEnemyPtr)
 void Player::Update(sf::Time frameTime)
 {
 
-	const float DRAG_MULT = 1.0f;
+	const float DRAG_MULT = 5.0f;
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 
+	//call animation update for player
+	Animation::Update(frameTime);
 	//Attack input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
 	{
@@ -68,6 +71,7 @@ void Player::Update(sf::Time frameTime)
 
 		// drag
 		velocity.x = velocity.x - velocity.x * DRAG_MULT * frameTime.asSeconds();
+		velocity.y = velocity.y - velocity.y * DRAG_MULT * frameTime.asSeconds();
 
 		// Update acceleration
 		UpdateAcceleration();
@@ -195,7 +199,7 @@ void Player::JabAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
-		this->Play("Jab");
+		Play("Jab");
 		enemyPtr->ChangeHealth(20);
 		SetHasAttacked(true);
 		cooldownClock.restart();
@@ -224,7 +228,7 @@ void Player::OverhandAttack()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
 		{
-			this->Play("Overhand");
+			Play("Overhand");
 			enemyPtr->ChangeHealth(40);
 			SetHasAttacked(true);
 			cooldownClock.restart();
@@ -284,28 +288,28 @@ void Player::UpdateAcceleration()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		acceleration.x = -ACCEL;
-		this->Play("Walk");
+		Play("Walk");
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		acceleration.x = ACCEL;
-		this->Play("Walk");
+		Play("Walk");
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
-		acceleration.x = -ACCEL;
-		this->Play("Walk");
+		acceleration.y = -ACCEL;
+		Play("Walk");
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
-		acceleration.x = ACCEL;
-		this->Play("Walk");
+		acceleration.y = ACCEL;
+		Play("Walk");
 	}
 	else 
 	{
-		this->Play("Idle");
+		Play("Idle");
 	}
 
 }
@@ -314,6 +318,7 @@ void Player::LoadAnimation()
 {
 	//LOAD ANIMATIONS
 	//load stand animation
+	/*
 	std::vector<sf::Texture> stand;
 	int numOfFrames = 2;
 	std::string baseFilePath = "Assets/Graphics/Frank/Idle";
@@ -322,7 +327,7 @@ void Player::LoadAnimation()
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
 	{
-		stand.push_back(sf::Texture());
+		stand.push_back(AssetManager::RequestTexture(baseFilePath + std::to_string(i) + fileType));
 	}
 
 	//load walk animation
@@ -333,7 +338,7 @@ void Player::LoadAnimation()
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
 	{
-		walk.push_back(sf::Texture());
+		walk.push_back(AssetManager::RequestTexture(baseFilePath + std::to_string(i) + fileType));
 	}
 
 	//load jab animation
@@ -355,28 +360,28 @@ void Player::LoadAnimation()
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
 	{
-		overhand.push_back(sf::Texture());
+		overhand.push_back(AssetManager::RequestTexture(baseFilePath + std::to_string(i) + fileType));
 	}
 
 	// current animation clip
 	std::vector<sf::Texture>* currentAni = &stand;
-
+	*/
 	//animation variables
 	float framesPerSecond = 12.0f;
 	sf::Time timePerFrame = sf::seconds(1.0f / framesPerSecond);
 	sf::Clock aniClock;
 	int currentFrame = 0;
 
-	sf::Texture playerStandTex;
-	playerStandTex.loadFromFile("Assets/Graphics/Frank/Idle/FrankIdle1.png");
-	sprite.setTexture(playerStandTex);
+	
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
 
 	//animation setup
-	Animation playerAnimation(&sprite, "Assets/Graphics/Frank", 12.0f);
-	playerAnimation.AddClip("Idle", 2, true);
-	playerAnimation.AddClip("Walk", 4, true);
-	playerAnimation.AddClip("Jab", 3, false);
-	playerAnimation.AddClip("Overhand", 3, false);
+	
+	
+	AddClip("Idle", 2, true);
+	AddClip("Walk", 4, true);
+	AddClip("Jab", 3, false);
+	AddClip("Overhand", 3, false);
 
 
 }

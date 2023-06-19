@@ -192,6 +192,7 @@ void Boss::LoadAnimation()
 {
 	//LOAD ANIMATIONS
 	//load stand animation
+	/*
 	std::vector<sf::Texture> stand;
 	int numOfFrames = 1;
 	std::string baseFilePath = "Assets/Graphics/Boss/Idle";
@@ -229,21 +230,21 @@ void Boss::LoadAnimation()
 	// current animation clip
 	std::vector<sf::Texture>* currentAni = &stand;
 
+	*/
 	//animation variables
 	float framesPerSecond = 12.0f;
 	sf::Time timePerFrame = sf::seconds(1.0f / framesPerSecond);
 	sf::Clock aniClock;
 	int currentFrame = 0;
 
-	sf::Texture bossStandTex;
-	bossStandTex.loadFromFile("Assets/Graphics/Boss/Idle");
-	sprite.setTexture(bossStandTex);
+	
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Idle.png"));
 
 	//animation setup
-	Animation bossAnimation(&sprite, "Assets/Graphics/Boss", 12.0f);
-	bossAnimation.AddClip("Idle", 1, true);
-	bossAnimation.AddClip("Walk", 4, true);
-	bossAnimation.AddClip("Overhand", 3, false);
+	
+	AddClip("Idle", 1, true);
+	AddClip("Walk", 4, true);
+	AddClip("Overhand", 3, false);
 }
 
 

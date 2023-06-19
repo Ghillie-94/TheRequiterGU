@@ -42,7 +42,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	soundtrack.play();
 
 	playText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
-	playText.setCharacterSize(30);
+	playText.setCharacterSize(72);
 	playText.setString("Play");
 	playText.setFillColor(sf::Color::Magenta);
 	playText.setOutlineColor(sf::Color::Cyan);
@@ -64,7 +64,7 @@ void LevelScreen::Update(sf::Time frameTime)
 
 					for (int i = 0; i < enemies.size(); ++i)
 					{
-						enemies[i]->Update();
+						enemies[i]->Update(frameTime);
 					}
 
 					player.SetColliding(false);

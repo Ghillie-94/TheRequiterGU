@@ -1,7 +1,10 @@
 #include "Animation.h"
+#include "AssetManager.h"
 
-Animation::Animation(sf::Sprite* newAnimatedSprite, std::string newBaseFilePath, float framesPerSecond, std::string newFileType)
-	: animatedSprite(newAnimatedSprite)
+
+
+Animation::Animation(std::string newBaseFilePath, float framesPerSecond, std::string newFileType)
+	: SpriteObject()
 	, baseFilePath(newBaseFilePath)
 	, fileType(newFileType)
 	, currentClip(nullptr)
@@ -10,11 +13,9 @@ Animation::Animation(sf::Sprite* newAnimatedSprite, std::string newBaseFilePath,
 	, timePerFrame(sf::seconds(1.0f / framesPerSecond))
 	, aniClock()
 	, isPlaying(false)
-{
-}
 
-Animation::Animation()
 {
+	
 }
 
 void Animation::AddClip(std::string clipName, int numFrames, bool shouldLoop)
@@ -23,8 +24,8 @@ void Animation::AddClip(std::string clipName, int numFrames, bool shouldLoop)
 
 	for (int i = 0; i < numFrames; ++i)
 	{
-		newClip.textures.push_back(sf::Texture());
-		newClip.textures[i].loadFromFile(baseFilePath + "_" + clipName + "_" + std::to_string(i + 1) + "." + fileType);
+		newClip.textures.push_back(&AssetManager::RequestTexture(baseFilePath  + clipName  + std::to_string(i + 1) + "." + fileType));
+		
 	}
 
 	//add clip to map
@@ -59,7 +60,7 @@ void Animation::Pause()
 	isPlaying = false;
 }
 
-void Animation::Update()
+void Animation::Update(sf::Time frameTime)
 {
 	if (isPlaying && currentClip != nullptr)
 	{
@@ -85,7 +86,7 @@ void Animation::Update()
 			}
 			
 			// load the new current frame into sprite
-			animatedSprite->setTexture(currentClip->textures[currentFrame]);
+			sprite.setTexture(*(currentClip->textures[currentFrame]));
 
 		}
 	}
