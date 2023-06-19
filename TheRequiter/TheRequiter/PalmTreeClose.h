@@ -15,5 +15,6 @@ private:
     Player* playerPtr;
     float playerVelocity;
     const float SCROLLSPEED;
+    sf::Vector2f pos;
 };
 

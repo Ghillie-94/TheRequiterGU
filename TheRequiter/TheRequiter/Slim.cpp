@@ -22,6 +22,7 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;
 
+	sprite.scale(.5f, .5f);
 	// Update velocity
 	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
 	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
@@ -231,9 +232,10 @@ void Slim::LoadAnimation()
 	int currentFrame = 0;
 
 	
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Enemies/sIdle"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Enemies/sIdle1.png"));
 
 	//animation setup
+	
 	
 	AddClip("sIdle", 1, true);
 	AddClip("sWalk", 4, true);

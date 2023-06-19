@@ -277,31 +277,31 @@ bool LevelScreen::LoadLevel(std::string fileName)
 		}
 		else if (ch == 'P')
 		{
-			player.SetPosition(x, y);
+			player.SetPosition(x, y-150);
 		}
 		else if (ch == 'W')
 		{
-			parallaxLayers.push_back(new WallLayer(sf::Vector2f(x, y), &player));
+			parallaxLayers.push_back(new WallLayer(sf::Vector2f(x-480, y+40), &player));
 		}
 		else if (ch == 'F')
 		{
-			parallaxLayers.push_back(new PalmTreeFar(sf::Vector2f(x, y), &player));
+			parallaxLayers.push_back(new PalmTreeFar(sf::Vector2f(x, y+120), &player));
 		}
 		else if (ch == 'C')
 		{
-			parallaxLayers.push_back(new PalmTreeClose(sf::Vector2f(x, y), &player));
+			parallaxLayers.push_back(new PalmTreeClose(sf::Vector2f(x, y-480), &player));
 		}
 		else if (ch == 'L')
 		{
-			parallaxLayers.push_back(new PierFerrisLayer(sf::Vector2f(x, y), &player));
+			parallaxLayers.push_back(new PierFerrisLayer(sf::Vector2f(x, y-260), &player));
 		}
 		else if (ch == 'S')
 		{
-			enemies.push_back(new Slim(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));
+			enemies.push_back(new Slim(sf::Vector2f(x, y-150), sf::Vector2f(x+100, y-150), sf::Vector2f(x-100, y-150), &player, this));
 		}
 		else if (ch == 'B')
 		{
-			enemies.push_back(new Boss(sf::Vector2f(x, y), sf::Vector2f(x+100, y), sf::Vector2f(x-100, y), &player, this));
+			enemies.push_back(new Boss(sf::Vector2f(x, y-150), sf::Vector2f(x+100, y-150), sf::Vector2f(x-100, y-150), &player, this));
 		}
 		
 		else if (ch == '-')

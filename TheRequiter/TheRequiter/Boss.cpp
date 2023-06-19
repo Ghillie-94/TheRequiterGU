@@ -18,9 +18,8 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, bossAttackBox(this)
 	, levelScreen(newLevelScreen)
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Boss/Idle1.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Enemies/Idle1.png"));
 	sprite.scale(.5f, .5f);
-	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
 	LoadAnimation();
 
@@ -40,11 +39,11 @@ void Boss::Update(sf::Time frameTime)
 	CheckDistance(playerPtr);
 	if (velocity.x != 0 || velocity.y != 0)
 	{
-		this->Play("Walk");
+		Play("Walk");
 	}
 	else
 	{
-		this->Play("Idle");
+		Play("Idle");
 	}
 	
 

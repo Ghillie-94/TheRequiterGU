@@ -28,7 +28,6 @@ Player::Player(Enemy* newEnemyPtr)
 	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
 	sprite.scale(.5, .5);
 	
-	
 	collisionType = CollisionType::AABB;
 	
 	attackArea.height = 150;

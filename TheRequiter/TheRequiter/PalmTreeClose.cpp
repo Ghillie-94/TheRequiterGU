@@ -5,10 +5,14 @@ PalmTreeClose::PalmTreeClose(sf::Vector2f newPosition, Player* newPlayerPtr)
 	: Parallax()
 	, playerPtr(newPlayerPtr)
 	, playerVelocity(0)
-	, SCROLLSPEED(70)
+	, SCROLLSPEED(20)
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Parallax/PalmTreeClose.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Parallax/PalmTreeClose.png"));
+	sprite.scale(.25, .25);
 	SetPosition(newPosition);
+	pos = GetPosition();
+	drawCollider = false;
+	collisionScale = sf::Vector2f(0, 0);
 }
 
 void PalmTreeClose::Update(sf::Time frameTime)
@@ -16,12 +20,12 @@ void PalmTreeClose::Update(sf::Time frameTime)
 	playerVelocity = playerPtr->GetVelocity().x;
 	if (playerVelocity > 0)
 	{
-		this->sprite.move(SCROLLSPEED, 0);
+		sprite.setPosition(pos.x - SCROLLSPEED, pos.y);
 		
 	}
 	else if (playerVelocity < 0)
 	{
-		this->sprite.move(-SCROLLSPEED, 0);
+		sprite.setPosition(pos.x + SCROLLSPEED, pos.y);
 		
 	}
 }
