@@ -3,7 +3,7 @@
 #include "LevelScreen.h"
 
 Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr, LevelScreen* newLevelScreen)
-	:Animation("Assets/Graphics", 12, ".png")
+	:Animation("Assets/Graphics/Enemies/", 6, "png")
 	, levelScreen(newLevelScreen)
 	, playerPtr(newPlayerPtr)
 	, playerInRange(false)

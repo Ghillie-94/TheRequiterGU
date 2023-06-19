@@ -18,7 +18,7 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, bossAttackBox(this)
 	, levelScreen(newLevelScreen)
 {
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Boss/Idle.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Boss/Idle1.png"));
 	sprite.scale(.5f, .5f);
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;

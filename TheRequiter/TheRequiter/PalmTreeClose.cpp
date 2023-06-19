@@ -17,6 +17,7 @@ void PalmTreeClose::Update(sf::Time frameTime)
 	if (playerVelocity > 0)
 	{
 		this->sprite.move(SCROLLSPEED, 0);
+		
 	}
 	else if (playerVelocity < 0)
 	{
