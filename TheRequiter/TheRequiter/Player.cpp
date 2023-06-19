@@ -35,6 +35,7 @@ Player::Player(Enemy* newEnemyPtr)
 	attackArea.width = 150;
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;
+	
 
 	
 
@@ -49,7 +50,7 @@ void Player::Update(sf::Time frameTime)
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 
 	//call animation update for player
-	Animation::Update(frameTime);
+	//Animation::Update(frameTime);
 	//Attack input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
 	{
