@@ -1,6 +1,7 @@
 #include "Slim.h"
 #include "VectorHelper.h"
 #include "Player.h"
+#include "AssetManager.h"
 
 
 
@@ -184,6 +185,7 @@ void Slim::LoadAnimation()
 {
 	//LOAD ANIMATIONS
 	//load stand animation
+	/*
 	std::vector<sf::Texture> stand;
 	int numOfFrames = 1;
 	std::string baseFilePath = "Assets/Graphics/Slim/Idle";
@@ -209,7 +211,7 @@ void Slim::LoadAnimation()
 	//load jab animation
 	std::vector<sf::Texture> jab;
 	numOfFrames = 3;
-	baseFilePath = "Assets/Graphics/Slim/Jab";
+	baseFilePath = "Assets/Graphics/SlimJab";
 
 	//create loop to populate vector
 	for (int i = 0; i < numOfFrames; ++i)
@@ -221,21 +223,21 @@ void Slim::LoadAnimation()
 	// current animation clip
 	std::vector<sf::Texture>* currentAni = &stand;
 
+	*/
 	//animation variables
 	float framesPerSecond = 12.0f;
 	sf::Time timePerFrame = sf::seconds(1.0f / framesPerSecond);
 	sf::Clock aniClock;
 	int currentFrame = 0;
 
-	sf::Texture slimStandTex;
-	slimStandTex.loadFromFile("Assets/Graphics/Slim/Idle");
-	sprite.setTexture(slimStandTex);
+	
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Enemies/sIdle"));
 
 	//animation setup
 	
-	AddClip("Idle", 2, true);
-	AddClip("Walk", 4, true);
-	AddClip("Jab", 3, false);
+	AddClip("sIdle", 1, true);
+	AddClip("sWalk", 4, true);
+	AddClip("sJab", 3, false);
 	
 }
 
