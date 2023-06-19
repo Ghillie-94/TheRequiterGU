@@ -1,6 +1,7 @@
 #pragma once
 #include "SpriteObject.h"
-#include "Enemy.h"
+
+class Enemy;
 class EnemyAttackBox :
     public SpriteObject
 {

@@ -1,8 +1,8 @@
 #pragma once
 #include "SpriteObject.h"
 #include <SFML/Graphics.hpp>
-#include "Player.h"
 
+class Player;
 class PlayerAttackBox :
     public SpriteObject
 {

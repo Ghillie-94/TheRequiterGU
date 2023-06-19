@@ -1,4 +1,6 @@
 #include "Enemy.h"
+#include "Player.h"
+#include "LevelScreen.h"
 
 Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr, LevelScreen* newLevelScreen)
 	:Animation()
@@ -46,9 +48,5 @@ void Enemy::AttackCheck(bool newCanAttack)
 	//handled in child class
 }
 
-EnemyAttackBox Enemy::GetEnemyAttackBox()
-{
-	//handled in child
-}
 
 

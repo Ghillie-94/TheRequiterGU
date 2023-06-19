@@ -1,6 +1,7 @@
 #include "Boss.h"
 #include "AssetManager.h"
 #include "VectorHelper.h"
+#include "Player.h"
 
 Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr, LevelScreen* newLevelScreen)
 	:Enemy(newPosition, newPlayerPtr, newLevelScreen)
@@ -185,10 +186,7 @@ void Boss::SetHasAttacked(bool newHasAttacked)
 	hasAttacked = newHasAttacked;
 }
 
-EnemyAttackBox Boss::GetEnemyAttackBox()
-{
-	return bossAttackBox;
-}
+
 
 void Boss::LoadAnimation()
 {

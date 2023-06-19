@@ -2,9 +2,9 @@
 #include "SpriteObject.h"
 #include "Animation.h"
 #include "PlayerAttackBox.h"
-#include "Enemy.h"
 
 
+class Enemy;
 class Player :
     public Animation
 {
@@ -35,6 +35,8 @@ private:
     sf::Vector2f twoFramesOldPos;
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
+
+    sf::FloatRect attackArea;
 
     PlayerAttackBox attackBox;
 

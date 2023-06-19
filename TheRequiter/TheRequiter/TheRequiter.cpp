@@ -4,7 +4,7 @@
 #include <time.h>
 #include "AssetManager.h"
 
-int Main() 
+int main() 
 {
     // Initialise the random number generator
     srand(time(NULL));

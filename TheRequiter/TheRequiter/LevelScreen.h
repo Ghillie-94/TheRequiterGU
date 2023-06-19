@@ -1,6 +1,6 @@
 #pragma once
 #include "Screen.h"
-#include "Player.h"
+
 #include "Barrier.h"
 #include "VerticalBarrier.h"
 #include "WinPanel.h"
@@ -8,9 +8,11 @@
 #include "Game.h"
 #include "AssetManager.h"
 #include "Background.h"
+#include "Player.h"
 
 
 #include <SFML/Graphics.hpp>
+
 
 class Game;
 class Enemy;
@@ -36,7 +38,7 @@ private:
     void Restart();
     bool LoadLevel(std::string fileName);
     bool LoadLevel(int levelNumber);
-    bool LoadTitleScreen();
+    
 
     bool isTitleScreen;
     bool isBossAlive;

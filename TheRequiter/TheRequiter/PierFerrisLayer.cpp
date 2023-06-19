@@ -1,4 +1,5 @@
 #include "PierFerrisLayer.h"
+#include "AssetManager.h"
 
 PierFerrisLayer::PierFerrisLayer(sf::Vector2f newPosition, Player* newPlayerPtr)
 	: Parallax()

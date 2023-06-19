@@ -2,6 +2,8 @@
 #include "Enemy.h"
 #include "EnemyAttackBox.h"
 #include "LevelScreen.h"
+
+class Player;
 class Boss :
     public Enemy
 {
@@ -24,7 +26,7 @@ public:
     
     void SetHasAttacked(bool newHasAttacked);
 
-    EnemyAttackBox GetEnemyAttackBox() override;
+    
 
 
     

@@ -1,4 +1,5 @@
 #include "EnemyAttackBox.h"
+#include "Enemy.h"
 
 EnemyAttackBox::EnemyAttackBox(Enemy* newEnemyPtr)
 	: SpriteObject()

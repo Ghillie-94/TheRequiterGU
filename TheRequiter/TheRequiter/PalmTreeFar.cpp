@@ -1,4 +1,5 @@
 #include "PalmTreeFar.h"
+#include "AssetManager.h"
 
 PalmTreeFar::PalmTreeFar(sf::Vector2f newPosition, Player* newPlayerPtr)
 	: Parallax()

@@ -1,4 +1,5 @@
 #include "PlayerAttackBox.h"
+#include "Player.h"
 
 PlayerAttackBox::PlayerAttackBox(Player* newPlayerPtr)
 	:SpriteObject()

@@ -1,5 +1,6 @@
 #include "Slim.h"
 #include "VectorHelper.h"
+#include "Player.h"
 
 
 
@@ -177,10 +178,7 @@ void Slim::SetHasAttacked(bool newHasAttacked)
 	hasAttacked = newHasAttacked;
 }
 
-EnemyAttackBox Slim::GetEnemyAttackBox()
-{
-	return attackBox;
-}
+
 
 void Slim::LoadAnimation()
 {

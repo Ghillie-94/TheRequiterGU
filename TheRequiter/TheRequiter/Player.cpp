@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "AssetManager.h"
 #include "Animation.h"
+#include "Enemy.h"
 
 enum class PhysicsType
 {
@@ -16,6 +17,7 @@ Player::Player(Enemy* newEnemyPtr)
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
+	, attackArea()
 	, attackBox(this)
 	, hasAttacked(false)
 	, health(200)
@@ -27,7 +29,9 @@ Player::Player(Enemy* newEnemyPtr)
 	collisionOffset = sf::Vector2f(0, 30);
 	collisionScale = sf::Vector2f(0.5f, 0.5f);
 	collisionType = CollisionType::AABB;
-
+	
+	attackArea.height = 150;
+	attackArea.width = 150;
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;
 

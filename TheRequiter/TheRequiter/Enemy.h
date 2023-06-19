@@ -1,9 +1,11 @@
 #pragma once
 #include "Animation.h"
-#include "Player.h"
-#include "LevelScreen.h"
+
+
 #include "EnemyAttackBox.h"
 
+class LevelScreen;
+class Player;
 class Enemy :
     public Animation
 {
@@ -18,7 +20,7 @@ public:
     virtual void AttackTimer();
     virtual void DoAttack();
     virtual void AttackCheck(bool newCanAttack);
-    virtual EnemyAttackBox GetEnemyAttackBox();
+    
 
 
 private:

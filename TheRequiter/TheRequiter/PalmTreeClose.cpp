@@ -1,4 +1,5 @@
 #include "PalmTreeClose.h"
+#include "AssetManager.h"
 
 PalmTreeClose::PalmTreeClose(sf::Vector2f newPosition, Player* newPlayerPtr)
 	: Parallax()

@@ -1,5 +1,7 @@
 #pragma once
 #include "Enemy.h"
+
+class Player;
 class Slim :
     public Enemy
 {
@@ -23,7 +25,7 @@ public:
     
     void SetHasAttacked(bool newHasAttacked);
 
-    EnemyAttackBox GetEnemyAttackBox() override;
+    
     
 
     

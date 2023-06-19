@@ -10,6 +10,7 @@
 #include "PierFerrisLayer.h"
 #include "Background.h"
 #include "SFML/Audio.hpp"
+#include "Player.h"
 
 #include <fstream>
 #include <iostream>
@@ -106,11 +107,7 @@ void LevelScreen::Update(sf::Time frameTime)
 							player.GetPlayerAttackBox().SetColliding(true);
 						}
 
-						if (enemies[i]->GetEnemyAttackBox().CheckCollision(player))
-						{
-							enemies[i]->AttackCheck(true);
-							player.SetColliding(true);
-						}
+						
 
 
 					}
@@ -334,6 +331,3 @@ bool LevelScreen::LoadLevel(int levelNumber)
 	return success;
 }
 
-bool LevelScreen::LoadTitleScreen()
-{
-}
