@@ -237,7 +237,7 @@ void Boss::LoadAnimation()
 	int currentFrame = 0;
 
 	
-	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Enemies/Idle.png"));
+	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Enemies/Idle1.png"));
 
 	//animation setup
 	
