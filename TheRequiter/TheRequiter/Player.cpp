@@ -202,23 +202,22 @@ void Player::JabAttack()
 {
 	if (!hasAttacked)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
+		
+		Play("Jab");
+		if (canAttack)
 		{
 			Play("Jab");
-			if (canAttack)
-			{
-				Play("Jab");
-				enemyPtr->ChangeHealth(20);
-				SetHasAttacked(true);
-				cooldownClock.restart();
-				AttackCooldown();
-				std::cout << "Jab successfully thrown" << std::endl;
-			}
-			else
-			{
-				AttackCooldown();
-			}
+			enemyPtr->ChangeHealth(20);
+			SetHasAttacked(true);
+			cooldownClock.restart();
+			AttackCooldown();
+			std::cout << "Jab successfully thrown" << std::endl;
 		}
+		else
+		{
+			AttackCooldown();
+		}
+		
 			
 		
 		
@@ -244,29 +243,28 @@ void Player::OverhandAttack()
 {
 	if (!hasAttacked)
 	{
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
+	
+		Play("Overhand");
+		if (canAttack)
 		{
-			Play("Overhand");
-			if (canAttack)
-			{
-				enemyPtr->ChangeHealth(40);
-				SetHasAttacked(true);
-				cooldownClock.restart();
-				AttackCooldown();
-				std::cout << "Overhand successfully thrown" << std::endl;
-			}
-			else
-			{
-				AttackCooldown();
-			}
-			
+			enemyPtr->ChangeHealth(40);
+			SetHasAttacked(true);
+			cooldownClock.restart();
+			AttackCooldown();
+			std::cout << "Overhand successfully thrown" << std::endl;
 		}
+		else
+		{
+			AttackCooldown();
+		}
+			
+		
 	}
 }
 
 bool Player::CheckAlive()
 {
-	if (this->alive == false)
+	if (alive == false)
 	{
 		return false;
 	}
@@ -310,6 +308,10 @@ void Player::AttackCheck(Enemy& other)
 void Player::ChangeHealth(int damage)
 {
 	health = health - damage;
+	if (health < 0)
+	{
+		SetAlive(false);
+	}
 }
 
 sf::Vector2f Player::GetVelocity()
