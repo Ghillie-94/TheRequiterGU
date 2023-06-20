@@ -50,6 +50,7 @@ void Player::Update(sf::Time frameTime)
 	const float DRAG_MULT = 5.0f;
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
 	attackArea.left = (GetPosition().x + 50);
+	attackArea.top = GetPosition().y;
 	//call animation update for player
 	Animation::Update(frameTime);
 	//Attack input
@@ -344,11 +345,11 @@ void Player::UpdateAcceleration()
 		acceleration.y = ACCEL;
 		//Play("Walk");
 	}
-	if (velocity.x != 0 || velocity.y != 0)
+	if (acceleration.x != 0 || acceleration.y != 0)
 	{
 		Play("Walk");
 	}
-	else if (velocity.x == 0 && velocity.y == 0)
+	else if (acceleration.x == 0 && acceleration.y == 0)
 	{
 		Play("Idle");
 	}
