@@ -294,10 +294,7 @@ void Player::AttackCheck(Enemy& other)
 		SetCanAttack(true);
 		
 	}
-	else
-	{
-		SetCanAttack(false);
-	}
+	
 
 
 }
