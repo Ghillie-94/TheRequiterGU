@@ -36,7 +36,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 
 {
 	Restart();
-	soundtrack.openFromFile("Assets/Audio/Soundtrack.mp3");
+	soundtrack.openFromFile("Assets/Audio/Soundtrack.ogg");
 	soundtrack.setVolume(75);
 	soundtrack.setLoop(true);
 	soundtrack.play();
