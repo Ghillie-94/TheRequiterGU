@@ -28,6 +28,9 @@ public:
 	virtual void HandleCollision(SpriteObject& other);
 	void SetAlive(bool newAlive);
 	void SetColliderDraw(bool newDrawCollider);
+	sf::FloatRect GetAABB();
+	
+
 
 protected:
 
@@ -37,12 +40,13 @@ protected:
 	CollisionType collisionType;
 	bool alive;
 	bool drawCollider;
+	
 
 private:
 
 	sf::Vector2f GetCollisionCentre();
 	float GetCircleColliderRadius();
-	sf::FloatRect GetAABB();
+	
 	sf::Vector2f position;
 	bool colliding;
 

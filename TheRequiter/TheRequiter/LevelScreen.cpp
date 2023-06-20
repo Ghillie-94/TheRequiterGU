@@ -107,14 +107,14 @@ void LevelScreen::Update(sf::Time frameTime)
 
 					for (int i = 0; i < enemies.size(); ++i)
 					{
-						if (enemies[i]->CheckCollision(player.GetPlayerAttackBox()))
+						if (enemies[i]->CheckCollision(player))
 						{
-							player.SetCanAttack(true);
+							
 							enemies[i]->SetColliding(true);
-							player.GetPlayerAttackBox().SetColliding(true);
+							player.SetColliding(true);
 						}
 
-						
+						player.AttackCheck(*enemies[i]);
 
 
 					}

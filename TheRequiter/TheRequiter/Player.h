@@ -27,6 +27,7 @@ public:
 
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
+    void AttackCheck(Enemy& other);
 
 private:
 
@@ -42,7 +43,7 @@ private:
 
     void LoadAnimation();
   
-    void AttackCheck();
+    
 
     bool canAttack;
     bool hasAttacked;

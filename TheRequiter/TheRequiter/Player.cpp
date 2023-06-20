@@ -2,6 +2,7 @@
 #include "AssetManager.h"
 #include "Animation.h"
 #include "Enemy.h"
+#include <iostream>
 
 enum class PhysicsType
 {
@@ -32,6 +33,7 @@ Player::Player(Enemy* newEnemyPtr)
 	
 	attackArea.height = 150;
 	attackArea.width = 150;
+	
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;
 	
@@ -47,7 +49,7 @@ void Player::Update(sf::Time frameTime)
 	
 	const float DRAG_MULT = 5.0f;
 	const PhysicsType physics = PhysicsType::FORWARD_EULER;
-
+	attackArea.left = (GetPosition().x + 50);
 	//call animation update for player
 	Animation::Update(frameTime);
 	//Attack input
@@ -197,13 +199,28 @@ void Player::SetHasAttacked(bool newHasAttacked)
 
 void Player::JabAttack()
 {
-	if (canAttack && !hasAttacked)
+	if (!hasAttacked)
 	{
-		Play("Jab");
-		enemyPtr->ChangeHealth(20);
-		SetHasAttacked(true);
-		cooldownClock.restart();
-		AttackCooldown();
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
+		{
+			Play("Jab");
+			if (canAttack)
+			{
+				Play("Jab");
+				enemyPtr->ChangeHealth(20);
+				SetHasAttacked(true);
+				cooldownClock.restart();
+				AttackCooldown();
+				std::cout << "Jab successfully thrown" << std::endl;
+			}
+			else
+			{
+				AttackCooldown();
+			}
+		}
+			
+		
+		
 		
 	}
 }
@@ -235,6 +252,7 @@ void Player::OverhandAttack()
 				SetHasAttacked(true);
 				cooldownClock.restart();
 				AttackCooldown();
+				std::cout << "Overhand successfully thrown" << std::endl;
 			}
 			else
 			{
@@ -263,7 +281,7 @@ PlayerAttackBox Player::GetPlayerAttackBox()
 }
 
 
-void Player::AttackCheck()
+void Player::AttackCheck(Enemy& other)
 {
 	//For attacking - use a rectangle representing the player's attack area, and set it's position to the player's plus an offset
 	//You will need a function on the Player to check if the attack is hitting a particular enemy
@@ -271,6 +289,17 @@ void Player::AttackCheck()
 	//Set that bool to true in the update function if they pressed the button down, otherwise set it to false
 	//so it will only be true for one frame.
 	
+	if (attackArea.intersects(other.GetAABB()))
+	{
+		enemyPtr = &other;
+		SetCanAttack(true);
+		
+	}
+	else
+	{
+		SetCanAttack(false);
+	}
+
 
 }
 
