@@ -46,6 +46,11 @@ void Enemy::DoAttack()
 	//handled in child class
 }
 
+void Enemy::AttackCheck(Player& player)
+{
+	//handled in child class
+}
+
 
 
 

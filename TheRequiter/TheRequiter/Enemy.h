@@ -19,6 +19,7 @@ public:
     virtual void CheckHealth();
     virtual void AttackTimer();
     virtual void DoAttack();
+    virtual void AttackCheck(Player& player);
 
 protected:
     bool playerInRange;

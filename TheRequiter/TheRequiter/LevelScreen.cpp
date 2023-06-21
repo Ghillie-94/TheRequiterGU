@@ -115,6 +115,7 @@ void LevelScreen::Update(sf::Time frameTime)
 						}
 
 						player.AttackCheck(*enemies[i]);
+						//TODO add enemy attack check call (passing in player)
 
 
 					}
