@@ -125,7 +125,7 @@ void LevelScreen::Update(sf::Time frameTime)
 				{
 					TriggerLose(true);
 					losePanel.Update(frameTime);
-					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 					{
 						Restart();
 					}
@@ -134,7 +134,7 @@ void LevelScreen::Update(sf::Time frameTime)
 			else
 			{
 				winPanel.Update(frameTime);
-				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4))
+				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 				{
 					Restart();
 				}
@@ -146,6 +146,8 @@ void LevelScreen::Update(sf::Time frameTime)
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 			{
 				isTitleScreen = false;
+				isBossAlive = true;
+				isPlayerAlive = true;
 			}
 		}
 	}
@@ -195,12 +197,12 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 	//before drawing
 	target.setView(target.getDefaultView());
 
-	if (!isBossAlive)
+	if (!isBossAlive && !isTitleScreen)
 	{
 		winPanel.Draw(target);
 	}
 
-	if (!isPlayerAlive)
+	if (!isPlayerAlive  && !isTitleScreen)
 	{
 		losePanel.Draw(target);
 	}
@@ -221,6 +223,7 @@ void LevelScreen::TriggerLose(bool lose)
 void LevelScreen::Restart()
 {
 	isTitleScreen = true;
+	
 	LoadLevel(currentLevel);
 }
 
@@ -320,8 +323,8 @@ bool LevelScreen::LoadLevel(std::string fileName)
 	//close the file now that we are done with it 
 	inFile.close();
 	//load barriers seperately as they overlap with wall layer
-	//barriers.push_back(new Barrier(sf::Vector2f(0, 350))), new Barrier(sf::Vector2f(0,1080));
-	//vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 0))), new VerticalBarrier(sf::Vector2f(9600, 0));
+	barriers.push_back(new Barrier(sf::Vector2f(0, 700))), new Barrier(sf::Vector2f(0,1080));
+	vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 0))), new VerticalBarrier(sf::Vector2f(9600, 0));
 
 	gameRunning = true;
 

@@ -34,13 +34,14 @@ void Slim::Update(sf::Time frameTime)
 {
 	CheckHealth();
 	CheckDistance(playerPtr);
+	Animation::Update(frameTime);
 	if (velocity.x != 0 || velocity.y != 0)
 	{
-		this->Play("Walk");
+		Play("Walk");
 	}
 	else
 	{
-		this->Play("Stand");
+		Play("Stand");
 	}
 
 	if (!playerInRange) 
@@ -101,7 +102,7 @@ void Slim::CheckHealth()
 	{
 		Die();
 	}
-	return;
+	
 }
 
 void Slim::ChangeHealth(int damage)

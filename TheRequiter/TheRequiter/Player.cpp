@@ -53,14 +53,17 @@ void Player::Update(sf::Time frameTime)
 	attackArea.top = GetPosition().y;
 	//call animation update for player
 	Animation::Update(frameTime);
+	AttackCooldown();
 	//Attack input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
 	{
+		Play("Jab");
 		JabAttack();
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num8))
 	{
+		Play("Overhand");
 		OverhandAttack();
 	}
 
@@ -181,7 +184,8 @@ void Player::HandleCollision(SpriteObject& other)
 		// If we collided from above
 		if (depth.y < 0)
 		{
-			velocity.y = -REBOUNDSPEED;
+			velocity.y = 0;
+			acceleration.y = 0;
 		}
 	}
 
@@ -229,7 +233,9 @@ void Player::AttackCooldown()
 {
 	if (hasAttacked)
 	{
-		cooldownClock.getElapsedTime() = coolDownTimer;
+		
+		//cooldownClock.getElapsedTime() = coolDownTimer;
+		coolDownTimer = cooldownClock.getElapsedTime();
 		if (coolDownTimer > sf::seconds(1.5f)) 
 		{
 			SetHasAttacked(false);
@@ -325,24 +331,24 @@ void Player::UpdateAcceleration()
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::A))
 	{
 		acceleration.x = -ACCEL;
-		//Play("Walk");
+		
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D))
 	{
 		acceleration.x = ACCEL;
-		//Play("Walk");
+		
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::W))
 	{
 		acceleration.y = -ACCEL;
-		//Play("Walk");
+		
 
 	}
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S))
 	{
 		acceleration.y = ACCEL;
-		//Play("Walk");
+		
 	}
 	if (acceleration.x != 0 || acceleration.y != 0)
 	{
