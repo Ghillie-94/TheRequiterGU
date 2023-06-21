@@ -114,9 +114,16 @@ void LevelScreen::Update(sf::Time frameTime)
 							player.SetColliding(true);
 						}
 
+						//Player attack check on enemies
 						player.AttackCheck(*enemies[i]);
-						//TODO add enemy attack check call (passing in player)
-						enemies[i]->AttackCheck(player);
+						
+						
+						//Enemy attack check on player
+						if (enemies[i]->GetAlive() == true)
+						{
+							enemies[i]->AttackCheck(player);
+						}
+						
 
 
 					}
@@ -225,6 +232,8 @@ void LevelScreen::TriggerLose(bool lose)
 void LevelScreen::Restart()
 {
 	isTitleScreen = true;
+	isPlayerAlive = true;
+	isBossAlive = true;
 	
 	LoadLevel(currentLevel);
 }
