@@ -42,7 +42,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	soundtrack.setVolume(75);
 	soundtrack.setLoop(true);
 	soundtrack.play();
-
+	
 	playText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
 	playText.setCharacterSize(72);
 	playText.setString("Play");
@@ -68,8 +68,9 @@ void LevelScreen::Update(sf::Time frameTime)
 			{
 				if (isPlayerAlive)
 				{
-					playerHealth = player.GetHealth();
+					
 					player.Update(frameTime);
+					
 					
 
 					for (int i = 0; i < enemies.size(); ++i)
@@ -90,6 +91,10 @@ void LevelScreen::Update(sf::Time frameTime)
 					{
 						barriers[i]->SetColliding(false);
 					}
+					for (int i = 0; i < vBarriers.size(); ++i)
+					{
+						vBarriers[i]->SetColliding(false);
+					}
 
 					for (int i = 0; i < parallaxLayers.size(); ++i)
 					{
@@ -108,6 +113,7 @@ void LevelScreen::Update(sf::Time frameTime)
 
 					for (int i = 0; i < vBarriers.size(); ++i)
 					{
+						
 						if (vBarriers[i]->CheckCollision(player))
 						{
 							player.SetColliding(true);
@@ -137,8 +143,8 @@ void LevelScreen::Update(sf::Time frameTime)
 							enemies[i]->AttackCheck(player);
 						}
 						
-
-
+						playerHealth = player.GetHealth();
+						healthText.setString(std::to_string(playerHealth));
 					}
 
 
@@ -209,7 +215,7 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 			enemies[i]->Draw(target);
 		}
 
-		healthText.setPosition(player.GetPosition().x, player.GetPosition().y - 150);
+		healthText.setPosition(player.GetPosition().x, player.GetPosition().y - 100);
 		target.draw(healthText);
 		
 
@@ -253,6 +259,8 @@ void LevelScreen::Restart()
 	isTitleScreen = true;
 	isPlayerAlive = true;
 	isBossAlive = true;
+	player.SetAlive(true);
+	player.SetHealth(250);
 	
 	LoadLevel(currentLevel);
 }
