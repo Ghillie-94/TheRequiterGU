@@ -8,10 +8,10 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, health(180)
 	, canAttack(false)
 	, hasAttacked(false)
-	, playerInRange(false)
 	, SPEED(80)
 	, POS1(newPos1)
 	, POS2(newPos2)
+	, playerPos(newPlayerPtr->GetPosition())
 	, targetPoint(&POS2)
 	, velocity(0, 0)
 	, playerPtr(newPlayerPtr)
@@ -81,6 +81,36 @@ void Boss::Update(sf::Time frameTime)
 	}
 	else
 	{
+		// in Range chase player
+		//update player position
+		playerPos = playerPtr->GetPosition();
+		playerPos.x = playerPos.x + 150;
+		targetPoint = &playerPos;
+		float frameSeconds = frameTime.asSeconds();
+
+
+		sf::Vector2f newPos = GetPosition();
+
+
+
+		sf::Vector2f toMove = velocity * frameSeconds;
+		float squareDistToMove = VectorHelper::SquareMagnitude(toMove);
+
+		sf::Vector2f vectorToTarget = *targetPoint - newPos;
+		float squareDistToTarget = VectorHelper::SquareMagnitude(vectorToTarget);
+
+		if (squareDistToMove >= squareDistToTarget)
+		{
+			// We arrived!
+
+		}
+		else
+		{
+			newPos += toMove;
+
+		}
+
+		SetPosition(newPos);
 		//TODO move towards player
 		if (canAttack)
 		{
