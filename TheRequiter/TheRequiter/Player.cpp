@@ -61,7 +61,7 @@ void Player::Update(sf::Time frameTime)
 	AttackCooldown();
 	//Attack input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
-	{
+	{	
 		Play("Jab");
 		JabAttack();
 	}
