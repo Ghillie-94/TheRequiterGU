@@ -26,7 +26,8 @@ public:
     void SetHasAttacked(bool newHasAttacked);
 
     
-
+    void AttackCheck(Player& player) override;
+    void SetCanAttack(bool newCanAttack);
 
     
 

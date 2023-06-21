@@ -22,6 +22,9 @@ Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	collisionType = CollisionType::AABB;
 	LoadAnimation();
 
+	attackArea.height = 150;
+	attackArea.width = 150;
+
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;
 
@@ -36,6 +39,11 @@ void Boss::Update(sf::Time frameTime)
 {
 	CheckHealth();
 	CheckDistance(playerPtr);
+
+	//update attack area's position
+	attackArea.left = (GetPosition().x - 50);
+	attackArea.top = GetPosition().y;
+
 	if (velocity.x != 0 || velocity.y != 0)
 	{
 		Play("Walk");
@@ -209,6 +217,20 @@ void Boss::CheckDistance(Player* newPlayerPtr)
 void Boss::SetHasAttacked(bool newHasAttacked)
 {
 	hasAttacked = newHasAttacked;
+}
+
+void Boss::AttackCheck(Player& player)
+{
+	if (attackArea.intersects(player.GetAABB()))
+	{
+		playerPtr = &player;
+		SetCanAttack(true);
+	}
+}
+
+void Boss::SetCanAttack(bool newCanAttack)
+{
+	canAttack = newCanAttack;
 }
 
 
