@@ -19,7 +19,6 @@ Player::Player(Enemy* newEnemyPtr)
 	, velocity(0, 0)
 	, acceleration(0, 0)
 	, attackArea()
-	, attackBox(this)
 	, hasAttacked(false)
 	, health(200)
 	, hasMovedRight(false)
@@ -282,10 +281,6 @@ bool Player::CheckAlive()
 	}
 }
 
-PlayerAttackBox Player::GetPlayerAttackBox()
-{
-	return attackBox;
-}
 
 
 void Player::AttackCheck(Enemy& other)

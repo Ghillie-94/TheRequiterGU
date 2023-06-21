@@ -1,7 +1,7 @@
 #pragma once
 #include "SpriteObject.h"
 #include "Animation.h"
-#include "PlayerAttackBox.h"
+
 
 
 class Enemy;
@@ -22,7 +22,7 @@ public:
     void OverhandAttack();
 
     bool CheckAlive();
-    PlayerAttackBox GetPlayerAttackBox();
+    
 
 
     void ChangeHealth(int damage);
@@ -39,7 +39,7 @@ private:
 
     sf::FloatRect attackArea;
 
-    PlayerAttackBox attackBox;
+    
 
     void LoadAnimation();
   
