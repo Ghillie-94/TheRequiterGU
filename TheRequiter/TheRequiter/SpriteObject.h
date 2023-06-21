@@ -27,8 +27,10 @@ public:
 	sf::Vector2f GetCollisionDepth(SpriteObject other);
 	virtual void HandleCollision(SpriteObject& other);
 	void SetAlive(bool newAlive);
+	
 	void SetColliderDraw(bool newDrawCollider);
 	sf::FloatRect GetAABB();
+	bool GetAlive();
 	
 
 

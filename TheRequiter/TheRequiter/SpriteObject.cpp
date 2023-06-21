@@ -251,6 +251,11 @@ sf::FloatRect SpriteObject::GetAABB()
 	return bounds;
 }
 
+bool SpriteObject::GetAlive()
+{
+	return alive;
+}
+
 
 
 
