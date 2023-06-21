@@ -21,7 +21,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, isBossAlive(true)
 	, isPlayerAlive(true)
 	, gameRunning(true)
-	, player(nullptr)
+	, player(nullptr, this)
 	, winPanel(newGamePointer->GetWindow())
 	, losePanel(newGamePointer->GetWindow())
 	, background()
@@ -56,7 +56,7 @@ void LevelScreen::Update(sf::Time frameTime)
 		{
 			if (isBossAlive)
 			{
-				if (player.CheckAlive() == true)
+				if (isPlayerAlive)
 				{
 
 					player.Update(frameTime);
@@ -125,7 +125,7 @@ void LevelScreen::Update(sf::Time frameTime)
 				}
 				else
 				{
-					TriggerLose(true);
+					
 					losePanel.Update(frameTime);
 					if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num4) || sf::Keyboard::isKeyPressed(sf::Keyboard::Enter))
 					{

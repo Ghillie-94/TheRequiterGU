@@ -34,6 +34,7 @@ private:
     sf::Time timePerFrame;
     sf::Clock aniClock;
     bool isPlaying;
+    
 
 };
 

@@ -2,6 +2,7 @@
 #include "AssetManager.h"
 #include "Animation.h"
 #include "Enemy.h"
+#include "LevelScreen.h"
 #include <iostream>
 
 enum class PhysicsType
@@ -13,16 +14,17 @@ enum class PhysicsType
 	VELOCITY_VERLET
 };
 
-Player::Player(Enemy* newEnemyPtr)
+Player::Player(Enemy* newEnemyPtr, LevelScreen* newLevelPtr)
 	: Animation("Assets/Graphics/Frank/", 6, "png")
 	, twoFramesOldPos(100, 100)
 	, velocity(0, 0)
 	, acceleration(0, 0)
 	, attackArea()
 	, hasAttacked(false)
-	, health(200)
+	, health(30)
 	, hasMovedRight(false)
 	, enemyPtr(newEnemyPtr)
+	, levelPtr(newLevelPtr)
 	
 {
 	sprite.setTexture(AssetManager::RequestTexture("Assets/Graphics/Frank/Idle1.png"));
@@ -53,6 +55,8 @@ void Player::Update(sf::Time frameTime)
 	//call animation update for player
 	Animation::Update(frameTime);
 
+	CheckHealth();
+	
 	//call attack cooldown
 	AttackCooldown();
 	//Attack input
@@ -300,6 +304,15 @@ void Player::AttackCheck(Enemy& other)
 	
 
 
+}
+
+void Player::CheckHealth()
+{
+	if(health <= 0)
+	{
+		levelPtr->TriggerLose(true);
+	}
+	return;
 }
 
 

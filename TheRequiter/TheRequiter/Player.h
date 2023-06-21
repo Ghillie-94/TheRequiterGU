@@ -4,6 +4,7 @@
 
 
 
+class LevelScreen;
 class Enemy;
 class Player :
     public Animation
@@ -11,7 +12,7 @@ class Player :
 
 public:
 
-    Player(Enemy* newEnemyPtr);
+    Player(Enemy* newEnemyPtr, LevelScreen* newLevelPtr);
     void Update(sf::Time frameTime) override;
     void HandleCollision(SpriteObject& other) override;
 
@@ -28,6 +29,7 @@ public:
     void ChangeHealth(int damage);
     sf::Vector2f GetVelocity();
     void AttackCheck(Enemy& other);
+    void CheckHealth();
 
 private:
 
@@ -53,6 +55,7 @@ private:
     sf::Time coolDownTimer;
 
     Enemy* enemyPtr;
+    LevelScreen* levelPtr;
 
     
 

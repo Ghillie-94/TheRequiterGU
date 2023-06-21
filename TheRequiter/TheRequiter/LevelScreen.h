@@ -18,6 +18,7 @@ class Game;
 class Enemy;
 class Parallax;
 
+
 class LevelScreen :
     public Screen
 {

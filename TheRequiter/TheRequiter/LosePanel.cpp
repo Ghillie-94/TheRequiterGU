@@ -17,7 +17,7 @@ LosePanel::LosePanel(sf::RenderWindow* newWindow)
 
 	title.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
 	title.setCharacterSize(70);
-	title.setString("YOU WIN!");
+	title.setString("YOU LOSE!");
 	title.setFillColor(sf::Color::Magenta);
 	title.setOutlineColor(sf::Color::Cyan);
 
