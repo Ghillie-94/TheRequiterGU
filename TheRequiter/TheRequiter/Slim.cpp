@@ -23,6 +23,8 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	sf::Time cooldownTimer;
 	
 	sprite.scale(.5f, .5f);
+	attackArea.height = 150;
+	attackArea.width = 150;
 	// Update velocity
 	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
 	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
@@ -34,6 +36,11 @@ void Slim::Update(sf::Time frameTime)
 {
 	CheckHealth();
 	CheckDistance(playerPtr);
+	AttackTimer();
+
+	//update attack area's position
+	attackArea.left = (GetPosition().x - 50);
+	attackArea.top = GetPosition().y;
 	Animation::Update(frameTime);
 	if (velocity.x != 0 || velocity.y != 0)
 	{
@@ -149,7 +156,8 @@ void Slim::AttackTimer()
 {
 	if (hasAttacked)
 	{
-		cooldownClock.getElapsedTime() = cooldownTimer;
+		
+		cooldownTimer = cooldownClock.getElapsedTime();
 		if (cooldownTimer > sf::seconds(2.5f))
 		{
 			SetHasAttacked(false);
@@ -162,7 +170,7 @@ void Slim::DoAttack()
 {
 	if (canAttack && !hasAttacked)
 	{
-		this->Play("Jab");
+		Play("Jab");
 		playerPtr->ChangeHealth(15);
 		SetHasAttacked(true);
 		cooldownClock.restart();
