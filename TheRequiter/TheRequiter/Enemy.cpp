@@ -10,6 +10,7 @@ Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr, LevelScreen* newLev
 	, playerInRange(false)
 	, health()
 {
+	SetPosition(newPosition);
 }
 
 
