@@ -37,6 +37,7 @@ void Slim::Update(sf::Time frameTime)
 	CheckHealth();
 	CheckDistance(playerPtr);
 	AttackTimer();
+	DoAttack();
 
 	//update attack area's position
 	attackArea.left = (GetPosition().x - 50);
