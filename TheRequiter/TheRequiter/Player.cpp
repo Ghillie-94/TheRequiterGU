@@ -21,7 +21,7 @@ Player::Player(Enemy* newEnemyPtr, LevelScreen* newLevelPtr)
 	, acceleration(0, 0)
 	, attackArea()
 	, hasAttacked(false)
-	, health(30)
+	, health(250)
 	, hasMovedRight(false)
 	, enemyPtr(newEnemyPtr)
 	, levelPtr(newLevelPtr)
@@ -318,6 +318,11 @@ void Player::CheckHealth()
 int Player::GetHealth()
 {
 	return health;
+}
+
+void Player::SetHealth(int newHealth)
+{
+	health = newHealth;
 }
 
 

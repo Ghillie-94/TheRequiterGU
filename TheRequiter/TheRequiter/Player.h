@@ -31,6 +31,7 @@ public:
     void AttackCheck(Enemy& other);
     void CheckHealth();
     int GetHealth();
+    void SetHealth(int newHealth);
 
 private:
 
