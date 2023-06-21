@@ -34,6 +34,7 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, playText()
 	, healthText()
 	, playerHealth()
+	, titleText()
 	
 
 {
@@ -43,12 +44,19 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	soundtrack.setLoop(true);
 	soundtrack.play();
 	
+
+	titleText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
+	titleText.setCharacterSize(100);
+	titleText.setString("The Requiter");
+	titleText.setFillColor(sf::Color::Magenta);
+	titleText.setOutlineColor(sf::Color::Cyan);
+	titleText.setOutlineThickness(3);
 	playText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
 	playText.setCharacterSize(72);
 	playText.setString("Play");
 	playText.setFillColor(sf::Color::Magenta);
 	playText.setOutlineColor(sf::Color::Cyan);
-	playText.setOutlineThickness(3);
+	playText.setOutlineThickness(2);
 	playerHealth = player.GetHealth();
 	healthText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
 	healthText.setCharacterSize(42);
@@ -222,9 +230,15 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 	}
 	else
 	{
-		
-		playText.setPosition(960, 540);
+		for (int i = 0; i < parallaxLayers.size(); ++i)
+		{
+			parallaxLayers[i]->Draw(target);
+		}
+		titleText.setPosition(535, 150);
+		playText.setPosition(850, 540);
 		target.draw(playText);
+		target.draw(titleText);
+
 	}
 
 	//for any UI, reset the camera to the default view
@@ -322,7 +336,7 @@ bool LevelScreen::LoadLevel(std::string fileName)
 		}
 		else if (ch == 'W')
 		{
-			parallaxLayers.push_back(new WallLayer(sf::Vector2f(x-480, y+40), &player));
+			parallaxLayers.push_back(new WallLayer(sf::Vector2f(x-1000, y+40), &player));
 		}
 		else if (ch == 'F')
 		{
@@ -365,9 +379,7 @@ bool LevelScreen::LoadLevel(std::string fileName)
 	vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 0))), new VerticalBarrier(sf::Vector2f(9600, 0));
 
 	gameRunning = true;
-	isTitleScreen = true;
-	isPlayerAlive = true;
-	isBossAlive = true;
+	
 
 
 

@@ -70,6 +70,7 @@ private:
     sf::Text playText;
     sf::Text healthText;
     int playerHealth;
+    sf::Text titleText;
 
 };
 
