@@ -25,6 +25,10 @@ public:
     
     void SetHasAttacked(bool newHasAttacked);
 
+    void AttackCheck(Player& player);
+    void SetCanAttack(bool newCanAttack);
+    
+
     
     
 
@@ -47,6 +51,7 @@ private:
     Player* playerPtr;
     sf::Clock cooldownClock;
     sf::Time cooldownTimer;
+    sf::FloatRect attackArea;
  
 };
 

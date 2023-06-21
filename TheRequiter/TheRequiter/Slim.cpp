@@ -213,6 +213,20 @@ void Slim::SetHasAttacked(bool newHasAttacked)
 	hasAttacked = newHasAttacked;
 }
 
+void Slim::AttackCheck(Player& player)
+{
+	if (attackArea.intersects(player.GetAABB()))
+	{
+		playerPtr = &player;
+		SetCanAttack(true);
+	}
+}
+
+void Slim::SetCanAttack(bool newCanAttack)
+{
+	canAttack = newCanAttack;
+}
+
 
 
 void Slim::LoadAnimation()
