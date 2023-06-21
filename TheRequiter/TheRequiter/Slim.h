@@ -47,6 +47,6 @@ private:
     Player* playerPtr;
     sf::Clock cooldownClock;
     sf::Time cooldownTimer;
-    EnemyAttackBox attackBox;
+ 
 };
 
