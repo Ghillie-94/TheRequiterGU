@@ -221,7 +221,7 @@ void Slim::SetHasAttacked(bool newHasAttacked)
 	hasAttacked = newHasAttacked;
 }
 
-void Slim::AttackCheck(Player& player)
+void Slim::AttackCheck(Player& player) 
 {
 	if (attackArea.intersects(player.GetAABB()))
 	{
