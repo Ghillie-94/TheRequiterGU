@@ -21,7 +21,7 @@ Player::Player(Enemy* newEnemyPtr, LevelScreen* newLevelPtr)
 	, acceleration(0, 0)
 	, attackArea()
 	, hasAttacked(false)
-	, health(250)
+	, health(30)
 	, hasMovedRight(false)
 	, enemyPtr(newEnemyPtr)
 	, levelPtr(newLevelPtr)
@@ -54,7 +54,7 @@ void Player::Update(sf::Time frameTime)
 	attackArea.top = GetPosition().y;
 	//call animation update for player
 	Animation::Update(frameTime);
-
+	GetHealth();
 	CheckHealth();
 	
 	//call attack cooldown
@@ -239,7 +239,7 @@ void Player::AttackCooldown()
 	if (hasAttacked)
 	{
 		
-		//cooldownClock.getElapsedTime() = coolDownTimer;
+		
 		coolDownTimer = cooldownClock.getElapsedTime();
 		if (coolDownTimer > sf::seconds(1.5f)) 
 		{
@@ -313,6 +313,11 @@ void Player::CheckHealth()
 		levelPtr->TriggerLose(true);
 	}
 	return;
+}
+
+int Player::GetHealth()
+{
+	return health;
 }
 
 

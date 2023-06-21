@@ -8,6 +8,7 @@ Enemy::Enemy(sf::Vector2f newPosition, Player* newPlayerPtr, LevelScreen* newLev
 	, levelScreen(newLevelScreen)
 	, playerPtr(newPlayerPtr)
 	, playerInRange(false)
+	, canAttack(false)
 	, health()
 {
 	SetPosition(newPosition);
@@ -50,6 +51,13 @@ void Enemy::AttackCheck(Player& player)
 {
 	//handled in child class
 }
+
+void Enemy::SetCanAttack(bool newCanAttack)
+{
+	//handled in child class
+}
+
+
 
 
 

@@ -30,6 +30,7 @@ public:
     sf::Vector2f GetVelocity();
     void AttackCheck(Enemy& other);
     void CheckHealth();
+    int GetHealth();
 
 private:
 

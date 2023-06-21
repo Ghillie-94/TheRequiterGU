@@ -8,7 +8,6 @@
 Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr, LevelScreen* newLevelScreen)
 	:Enemy(newPosition, newPlayerPtr, newLevelScreen)
 	, health(75)
-	, canAttack(false)
 	, hasAttacked(false)
 	, SPEED(80)
 	, POS1(newPos1)
@@ -23,8 +22,8 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	sf::Time cooldownTimer;
 	
 	sprite.scale(.5f, .5f);
-	attackArea.height = 150;
-	attackArea.width = 150;
+	attackArea.height = 100;
+	attackArea.width = 100;
 	// Update velocity
 	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
 	vectorToNewTarget = VectorHelper::Normalise(vectorToNewTarget);
@@ -37,7 +36,7 @@ void Slim::Update(sf::Time frameTime)
 	CheckHealth();
 	CheckDistance(playerPtr);
 	AttackTimer();
-	DoAttack();
+	//DoAttack();
 
 	//update attack area's position
 	attackArea.left = (GetPosition().x - 50);

@@ -36,7 +36,6 @@ private:
     void LoadAnimation();
 
     int health;
-    bool canAttack;
     bool hasAttacked;
 
     const float SPEED;

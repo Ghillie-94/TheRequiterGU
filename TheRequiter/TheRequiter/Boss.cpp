@@ -6,7 +6,6 @@
 Boss::Boss(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2, Player* newPlayerPtr, LevelScreen* newLevelScreen)
 	:Enemy(newPosition, newPlayerPtr, newLevelScreen)
 	, health(180)
-	, canAttack(false)
 	, hasAttacked(false)
 	, SPEED(80)
 	, POS1(newPos1)

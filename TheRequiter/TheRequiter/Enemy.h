@@ -20,9 +20,11 @@ public:
     virtual void AttackTimer();
     virtual void DoAttack();
     virtual void AttackCheck(Player& player);
+    virtual void SetCanAttack(bool newCanAttack);
 
 protected:
     bool playerInRange;
+    bool canAttack;
     
 
 

@@ -32,6 +32,8 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	, enemies()
 	, soundtrack()
 	, playText()
+	, healthText()
+	, playerHealth()
 	
 
 {
@@ -46,6 +48,14 @@ LevelScreen::LevelScreen(Game* newGamePointer)
 	playText.setString("Play");
 	playText.setFillColor(sf::Color::Magenta);
 	playText.setOutlineColor(sf::Color::Cyan);
+	playText.setOutlineThickness(3);
+	playerHealth = player.GetHealth();
+	healthText.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
+	healthText.setCharacterSize(42);
+	healthText.setString(std::to_string(playerHealth));
+	healthText.setFillColor(sf::Color::Cyan);
+	healthText.setOutlineColor(sf::Color::Magenta);
+	healthText.setOutlineThickness(2);
 }
 
 void LevelScreen::Update(sf::Time frameTime)
@@ -58,7 +68,7 @@ void LevelScreen::Update(sf::Time frameTime)
 			{
 				if (isPlayerAlive)
 				{
-
+					playerHealth = player.GetHealth();
 					player.Update(frameTime);
 					
 
@@ -107,6 +117,9 @@ void LevelScreen::Update(sf::Time frameTime)
 
 					for (int i = 0; i < enemies.size(); ++i)
 					{
+						
+						enemies[i]->SetCanAttack(false);
+
 						if (enemies[i]->CheckCollision(player))
 						{
 							
@@ -171,6 +184,7 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 
 	if (!isTitleScreen)
 	{
+
 		//update the camera based on the render target size and player position
 		camera = target.getDefaultView();
 		sf::Vector2f cameraCentre = camera.getCenter();
@@ -179,6 +193,8 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 
 		//update the render target to use the camera
 		target.setView(camera);
+
+		
 
 		// draw "world" objects (ones that should use the camera
 		for (int i = 0; i < parallaxLayers.size(); ++i)
@@ -192,6 +208,9 @@ void LevelScreen::Draw(sf::RenderTarget& target)
 		{
 			enemies[i]->Draw(target);
 		}
+
+		healthText.setPosition(player.GetPosition().x, player.GetPosition().y - 150);
+		target.draw(healthText);
 		
 
 	}
@@ -338,6 +357,9 @@ bool LevelScreen::LoadLevel(std::string fileName)
 	vBarriers.push_back(new VerticalBarrier(sf::Vector2f(0, 0))), new VerticalBarrier(sf::Vector2f(9600, 0));
 
 	gameRunning = true;
+	isTitleScreen = true;
+	isPlayerAlive = true;
+	isBossAlive = true;
 
 
 

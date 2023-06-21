@@ -68,6 +68,8 @@ private:
 
     sf::Music soundtrack;
     sf::Text playText;
+    sf::Text healthText;
+    int playerHealth;
 
 };
 
