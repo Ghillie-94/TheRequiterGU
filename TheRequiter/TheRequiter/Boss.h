@@ -1,6 +1,5 @@
 #pragma once
 #include "Enemy.h"
-#include "EnemyAttackBox.h"
 #include "LevelScreen.h"
 
 class Player;
@@ -48,8 +47,8 @@ private:
     Player* playerPtr;
     sf::Clock cooldownClock;
     sf::Time cooldownTimer;
-    EnemyAttackBox bossAttackBox;
     LevelScreen* levelScreen;
+    sf::FloatRect attackArea;
 
 };
 
