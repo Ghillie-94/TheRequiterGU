@@ -154,7 +154,7 @@ void Boss::AttackTimer()
 {
 	if (hasAttacked)
 	{
-		cooldownClock.getElapsedTime() = cooldownTimer;
+		cooldownTimer = cooldownClock.getElapsedTime();
 		if (cooldownTimer > sf::seconds(3.5f))
 		{
 			SetHasAttacked(false);
