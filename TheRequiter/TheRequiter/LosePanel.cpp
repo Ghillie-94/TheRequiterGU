@@ -23,7 +23,7 @@ LosePanel::LosePanel(sf::RenderWindow* newWindow)
 
 	message.setFont(AssetManager::RequestFont("Assets/Fonts/good-times.rg-regular.otf"));
 	message.setCharacterSize(30);
-	message.setString("MENU");
+	message.setString("Restart");
 	message.setFillColor(sf::Color::Magenta);
 	message.setOutlineColor(sf::Color::Cyan);
 
