@@ -10,10 +10,10 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 	, health(75)
 	, canAttack(false)
 	, hasAttacked(false)
-	, playerInRange(false)
 	, SPEED(80)
 	, POS1(newPos1)
 	, POS2(newPos2)
+	, playerPos(newPlayerPtr->GetPosition())
 	, targetPoint(&POS2)
 	, velocity(0, 0)
 	, playerPtr(newPlayerPtr)
@@ -21,7 +21,7 @@ Slim::Slim(sf::Vector2f newPosition, sf::Vector2f newPos1, sf::Vector2f newPos2,
 {
 	sf::Clock cooldownClock;
 	sf::Time cooldownTimer;
-
+	
 	sprite.scale(.5f, .5f);
 	// Update velocity
 	sf::Vector2f vectorToNewTarget = *targetPoint - GetPosition();
@@ -72,12 +72,47 @@ void Slim::Update(sf::Time frameTime)
 		else
 		{
 			newPos += toMove;
+			
 		}
 
 		SetPosition(newPos);
 	}
 	else
 	{
+		// in Range chase player
+		//update player position
+		playerPos = playerPtr->GetPosition();
+		playerPos.x = playerPos.x + 150;
+		targetPoint = &playerPos;
+		float frameSeconds = frameTime.asSeconds();
+
+		
+		sf::Vector2f newPos = GetPosition();
+		
+		
+		
+		sf::Vector2f toMove = velocity * frameSeconds;
+		float squareDistToMove = VectorHelper::SquareMagnitude(toMove);
+
+		sf::Vector2f vectorToTarget = *targetPoint - newPos;
+		float squareDistToTarget = VectorHelper::SquareMagnitude(vectorToTarget);
+
+		if (squareDistToMove >= squareDistToTarget)
+		{
+			// We arrived!
+
+		}
+		else
+		{
+			newPos += toMove;
+
+		}
+
+		SetPosition(newPos);
+		
+		
+		
+		
 		//TODO move towards player
 		if (canAttack)
 		{
@@ -144,27 +179,27 @@ void Slim::AttackCheck(bool newCanAttack)
 void Slim::CheckDistance(Player* newPlayerPtr)
 {
 	bool leftSideEnemy = false;
-	int targetRange = 300;
+	int targetRange = 500;
 	playerPtr = newPlayerPtr;
 	float left;
 	float right;
 	float playerPosition = playerPtr->GetPosition().x;
-	float platformPos = GetPosition().x;
-	if (platformPos < playerPosition)
+	float enemyPos = GetPosition().x;
+	if (enemyPos < playerPosition)
 	{
 		leftSideEnemy = true;
 	}
 	if (!leftSideEnemy)
 	{
 		left = playerPosition;
-		right = platformPos;
+		right = enemyPos;
 	}
 	else
 	{
 		right = playerPosition;
-		left = platformPos;
+		left = enemyPos;
 	}
-	if ((right - left) < targetRange)
+	if ((right - left) <= targetRange)
 	{
 		SetInRange(true);
 	}

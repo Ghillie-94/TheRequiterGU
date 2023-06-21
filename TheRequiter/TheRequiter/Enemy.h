@@ -20,12 +20,15 @@ public:
     virtual void AttackTimer();
     virtual void DoAttack();
     virtual void AttackCheck(bool newCanAttack);
+
+protected:
+    bool playerInRange;
     
 
 
 private:
     Player* playerPtr;
-    bool playerInRange;
+    
     int health;
     LevelScreen* levelScreen;
 };

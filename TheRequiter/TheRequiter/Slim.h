@@ -37,7 +37,7 @@ private:
     int health;
     bool canAttack;
     bool hasAttacked;
-    bool playerInRange;
+    
     const float SPEED;
     const sf::Vector2f POS1;
     const sf::Vector2f POS2;

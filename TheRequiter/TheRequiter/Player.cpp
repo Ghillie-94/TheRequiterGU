@@ -53,6 +53,8 @@ void Player::Update(sf::Time frameTime)
 	attackArea.top = GetPosition().y;
 	//call animation update for player
 	Animation::Update(frameTime);
+
+	//call attack cooldown
 	AttackCooldown();
 	//Attack input
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num5))
