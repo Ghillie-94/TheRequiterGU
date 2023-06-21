@@ -169,10 +169,7 @@ void Boss::DoAttack()
 	}
 }
 
-void Boss::AttackCheck(bool newCanAttack)
-{
-	canAttack = newCanAttack;
-}
+
 
 void Boss::CheckDistance(Player* newPlayerPtr)
 {

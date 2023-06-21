@@ -46,10 +46,7 @@ void Enemy::DoAttack()
 	//handled in child class
 }
 
-void Enemy::AttackCheck(bool newCanAttack)
-{
-	//handled in child class
-}
+
 
 
 

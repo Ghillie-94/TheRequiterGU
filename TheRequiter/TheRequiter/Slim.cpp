@@ -171,10 +171,7 @@ void Slim::DoAttack()
 	}
 }
 
-void Slim::AttackCheck(bool newCanAttack)
-{
-	canAttack = newCanAttack;
-}
+
 
 void Slim::CheckDistance(Player* newPlayerPtr)
 {

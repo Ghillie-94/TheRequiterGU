@@ -19,7 +19,7 @@ public:
     void ChangeHealth(int damage) override;
     void AttackTimer() override;
     void DoAttack() override;
-    void AttackCheck(bool newCanAttack) override;
+
     void CheckDistance(Player* newPlayerPtr);
 
     
