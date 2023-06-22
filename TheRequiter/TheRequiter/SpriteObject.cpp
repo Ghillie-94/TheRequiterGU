@@ -10,7 +10,7 @@ SpriteObject::SpriteObject()
 	, collisionScale(1,1)
 	, collisionType(CollisionType::AABB)
 	, alive(true)
-	, drawCollider(true)
+	, drawCollider(false)
 {
 }
 
